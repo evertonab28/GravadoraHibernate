@@ -39,7 +39,6 @@ public class LoginView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -63,11 +62,7 @@ public class LoginView extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginView().setVisible(true);
@@ -90,8 +85,8 @@ public class LoginView extends javax.swing.JFrame {
     public String getSenha() {
         return jPasswordField.getText();
     }
-    
-    public void addListenerLogin(ActionListener loginListener){
+
+    public void addListenerLogin(ActionListener loginListener) {
         jLoginButton.addActionListener(loginListener);
     }
 
