@@ -1,6 +1,9 @@
 package br.edu.ifms.view;
 
+import br.edu.ifms.dao.UsuarioDao;
+import br.edu.ifms.model.Usuario;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 public class LoginView extends javax.swing.JFrame {
 

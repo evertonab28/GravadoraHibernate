@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity
+//@NamedQuery(name = "Usuario.findByLoginSenha", query = "SELECT u from usuario u where u.login = :login and u.senha = :senha")
 public class Usuario implements EntidadeBase {
 
     private Long id;
