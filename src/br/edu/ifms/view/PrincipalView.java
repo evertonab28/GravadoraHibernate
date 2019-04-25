@@ -16,11 +16,11 @@ public class PrincipalView extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuUsuario = new javax.swing.JMenuItem();
+        jMenuAlbum = new javax.swing.JMenuItem();
+        jMenuArtista = new javax.swing.JMenuItem();
+        jMenuCompositor = new javax.swing.JMenuItem();
+        jMenuMusica = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -43,57 +43,52 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenu1.setText("Cadastro");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Usuários");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuUsuario.setText("Usuários");
+        jMenuUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuUsuarioActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(jMenuUsuario);
 
-        jMenuItem3.setText("Álbuns");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuAlbum.setText("Álbuns");
+        jMenuAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuAlbumActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(jMenuAlbum);
 
-        jMenuItem4.setText("Artistas");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuArtista.setText("Artistas");
+        jMenuArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuArtistaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        jMenu1.add(jMenuArtista);
 
-        jMenuItem5.setText("Compositores");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        jMenuCompositor.setText("Compositores");
+        jMenuCompositor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                jMenuCompositorActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem5);
+        jMenu1.add(jMenuCompositor);
 
-        jMenuItem6.setText("Músicas");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        jMenuMusica.setText("Músicas");
+        jMenuMusica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                jMenuMusicaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        jMenu1.add(jMenuMusica);
 
         jMenuBar1.add(jMenu1);
 
         jMenu3.setText("Consultar");
 
         jMenuItem7.setText("Musicas");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
         jMenu3.add(jMenuItem7);
 
         jMenuItem8.setText("Musicas Layout");
@@ -135,49 +130,43 @@ public class PrincipalView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUsuarioActionPerformed
 //
 //        formCadUsuarios form = new formCadUsuarios();
 //        form.setVisible(true);
 //        jDesktopPane1.add(form);
 
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jMenuUsuarioActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMenuAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlbumActionPerformed
 //        formCadAlbum frmal = new formCadAlbum();
 //        frmal.setVisible(true);
 //        jDesktopPane1.add(frmal);
 
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jMenuAlbumActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuArtistaActionPerformed
 //        formCadArtista frmart = new formCadArtista();
 //        frmart.setVisible(true);
 //        jDesktopPane1.add(frmart);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jMenuArtistaActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jMenuCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCompositorActionPerformed
 //        formCadComp frmcomp = new formCadComp();
 //        frmcomp.setVisible(true);
 //        jDesktopPane1.add(frmcomp);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_jMenuCompositorActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void jMenuMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuMusicaActionPerformed
 //        formCadMusicas frmus = new formCadMusicas();
 //        frmus.setVisible(true);
 //        jDesktopPane1.add(frmus);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-//        formConsMusicas fconmus = new formConsMusicas();
-//        fconmus.setVisible(true);
-//        jDesktopPane1.add(fconmus);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_jMenuMusicaActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
 //        formConsMusicasLayout fconmuslay = new formConsMusicasLayout();
@@ -194,18 +183,18 @@ public class PrincipalView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    public javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    public javax.swing.JMenuItem jMenuAlbum;
+    public javax.swing.JMenuItem jMenuArtista;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    public javax.swing.JMenuItem jMenuCompositor;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    public javax.swing.JMenuItem jMenuMusica;
+    public javax.swing.JMenuItem jMenuUsuario;
     // End of variables declaration//GEN-END:variables
 }

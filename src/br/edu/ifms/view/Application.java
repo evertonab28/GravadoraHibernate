@@ -1,6 +1,6 @@
 package br.edu.ifms.view;
 
-import br.edu.ifms.controller.UsuarioController;
+import br.edu.ifms.controller.LoginController;
 import br.edu.ifms.model.Usuario;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -18,7 +18,7 @@ public class Application {
         Usuario usuario = new Usuario();
         LoginView loginView = new LoginView();
 
-        UsuarioController controller = new UsuarioController(usuario, loginView);
+        LoginController controller = new LoginController(usuario, loginView);
         loginView.setLocationRelativeTo(null);
         loginView.setVisible(true);
     }
