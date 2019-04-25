@@ -4,14 +4,10 @@ import br.edu.ifms.connection.ConnectionFactory;
 import br.edu.ifms.model.EntidadeBase;
 import br.edu.ifms.model.Usuario;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceException;
-import javax.persistence.TypedQuery;
 
-public class UsuarioDao extends DaoGenerico{
+public class UsuarioDAO extends DaoGenerico{
 
 private final static EntityManager MANAGER = ConnectionFactory.getEntityManager();
 
@@ -41,17 +37,6 @@ private final static EntityManager MANAGER = ConnectionFactory.getEntityManager(
     }
 
     public Usuario findByLoginSenha(String login, String senha) {
-//        Usuario usuario = null;
-//        try {
-//            TypedQuery<Usuario> query = MANAGER.createNamedQuery("Usuario.findByLoginSenha", Usuario.class)
-//                    .setParameter("login", login)
-//                    .setParameter("senha", senha);                    
-//            usuario = query.getSingleResult();
-//        } catch (PersistenceException ex) {
-//            Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        ConnectionFactory.closeEntityManager(MANAGER);
-//        return usuario;
 
         try{
             Usuario usuario = (Usuario) MANAGER.createQuery("SELECT u from "

@@ -1,6 +1,6 @@
 package br.edu.ifms.controller;
 
-import br.edu.ifms.dao.UsuarioDao;
+import br.edu.ifms.dao.UsuarioDAO;
 import br.edu.ifms.exception.BusinessException;
 import br.edu.ifms.model.Usuario;
 import br.edu.ifms.view.LoginView;
@@ -64,7 +64,7 @@ public class UsuarioController {
 //                        startFormPrincipal();
 //            }
 
-            UsuarioDao usuarioDao = new UsuarioDao();
+            UsuarioDAO usuarioDao = new UsuarioDAO();
             usuario = usuarioDao.findByLoginSenha(loginView.getLogin(), loginView.getSenha());
             if (usuario == null) {
                 JOptionPane.showMessageDialog(loginView, "Usuario/Senha inválido",
