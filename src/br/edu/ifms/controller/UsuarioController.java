@@ -41,7 +41,7 @@ public class UsuarioController {
         }
     }
 
-    public void limparCampos() {
+    public void clearFields() {
         usuarioView.setUsuario("");
         usuarioView.setLogin("");
         usuarioView.setSenha("");
@@ -60,11 +60,11 @@ public class UsuarioController {
             }
 
             if (ae.getSource() == usuarioView.btnDeletar) {
-                System.out.println("DELETAR");
+                deletarUsuario();
             }
 
             if (ae.getSource() == usuarioView.btnLimpar) {
-                limparCampos();
+                clearFields();
             }
         }
     }
@@ -82,7 +82,7 @@ public class UsuarioController {
             usuario.setSenha(usuarioView.getSenha());
             daoUsuario.saveOrUpdate(usuario);
 
-            limparCampos();
+            clearFields();
             fillTable();
 
         }
@@ -90,9 +90,7 @@ public class UsuarioController {
 
     public void editarUsuario() {
 
-        if (usuarioView.jTableUsuarios.getSelectedRow() == -1) {
-            JOptionPane.showMessageDialog(null, "Selecione algum usuário!");
-        } else {
+        if (usuarioView.jTableUsuarios.getSelectedRow() != -1) {
             usuario = new Usuario();
             DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
 
@@ -102,8 +100,28 @@ public class UsuarioController {
             usuario.setId((long) usuarioView.jTableUsuarios.getValueAt(usuarioView.jTableUsuarios.getSelectedRow(), 0));
             daoUsuario.saveOrUpdate(usuario);
 
-            limparCampos();
+            clearFields();
             fillTable();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione algum usuário!");
+        }
+    }
+
+    public void deletarUsuario() {
+        if (usuarioView.jTableUsuarios.getSelectedRow() != -1) {
+
+            usuario = new Usuario();
+            DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
+            usuario.setId((long) usuarioView.jTableUsuarios.getValueAt(usuarioView.jTableUsuarios.getSelectedRow(), 0));
+            
+            daoUsuario.remove(Usuario.class, usuario.getId());
+            clearFields();
+            fillTable();
+            JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso!");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione algum usuário para deletar!");
         }
     }
 
