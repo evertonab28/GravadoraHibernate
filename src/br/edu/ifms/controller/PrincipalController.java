@@ -32,8 +32,8 @@ public class PrincipalController {
                 usuarioView = new UsuarioView();
                 Usuario usuario = new Usuario();
                 UsuarioController usuarioCtrl = new UsuarioController(usuario, usuarioView);
-                pView.jDesktopPane1.add(usuarioView);
-                usuarioCtrl.UsuarioViewTable();
+                usuarioView.setVisible(true);
+                pView.getContentPane().add(usuarioView);
 
             }
 //            if (ae.getSource() == pView.jMenuAlbum) {

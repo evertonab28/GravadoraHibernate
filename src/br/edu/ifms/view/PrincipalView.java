@@ -189,7 +189,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
     public void addActionMenu(ActionListener ActionMenu) {
 
-        jMenuUsuario.addActionListener(ActionMenu);
+        //jMenuUsuario.addActionListener(ActionMenu);
 
     }
 

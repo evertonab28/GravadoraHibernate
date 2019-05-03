@@ -2,16 +2,9 @@ package br.edu.ifms.controller;
 
 import br.edu.ifms.dao.UsuarioDAO;
 import br.edu.ifms.model.Usuario;
-import br.edu.ifms.tablemodel.UsuarioTableModel;
-import br.edu.ifms.view.LoginView;
 import br.edu.ifms.view.PrincipalView;
 import br.edu.ifms.view.UsuarioView;
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
-import javax.swing.JOptionPane;
+
 
 public class UsuarioController {
 
@@ -30,11 +23,11 @@ public class UsuarioController {
 //        UsuarioView();
 //    }
 //    
-    public void UsuarioViewTable() {
-        UsuarioTableModel tableModel = new UsuarioTableModel();
-        usuarioView.tblUsuarios.setModel(tableModel);
-
-    }
+//    public void UsuarioViewTable() {
+//        UsuarioTableModel tableModel = new UsuarioTableModel();
+//        usuarioView.tblUsuarios.setModel(tableModel);
+//
+//    }
 //    
 //    public class ListenerCadastrar implements ActionListener{
 //
