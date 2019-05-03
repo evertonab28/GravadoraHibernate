@@ -33,15 +33,11 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="txtCodigo" min="-2" pref="41" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextUsuario" max="32767" attributes="0"/>
+                          <Component id="jTextUsuario" min="-2" pref="422" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabel3" min="-2" pref="31" max="-2" attributes="0"/>
@@ -50,7 +46,7 @@
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextSenha" pref="258" max="32767" attributes="0"/>
+                          <Component id="jTextSenha" min="-2" pref="258" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
@@ -64,7 +60,7 @@
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="btnLimpar" linkSize="1" min="-2" pref="63" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="txtPesquisar" alignment="0" pref="557" max="32767" attributes="0"/>
+                      <Component id="txtPesquisar" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="74" pref="74" max="-2" attributes="0"/>
@@ -77,11 +73,9 @@
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Component id="txtPesquisar" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="173" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="177" max="32767" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -150,19 +144,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtCodigo">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>

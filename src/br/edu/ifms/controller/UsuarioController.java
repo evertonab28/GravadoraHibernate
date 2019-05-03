@@ -5,6 +5,8 @@ import br.edu.ifms.model.Usuario;
 import br.edu.ifms.view.UsuarioView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -18,6 +20,7 @@ public class UsuarioController {
         this.usuario = usuario;
         this.usuarioView = usuarioView;
         this.usuarioView.addButtonListener(new ButtonListener());
+        this.usuarioView.addTableListener(new TableListener());
         DefaultTableModel model = (DefaultTableModel) this.usuarioView.jTableUsuarios.getModel();
         this.usuarioView.jTableUsuarios.setRowSorter(new TableRowSorter(model));
         fillTable();
@@ -81,5 +84,48 @@ public class UsuarioController {
                 limparCampos();
             }
         }
+    }
+
+    public class TableListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent me) {
+            if (usuarioView.jTableUsuarios == me.getSource()) {
+                if (usuarioView.jTableUsuarios.getSelectedRow() != -1) {
+                    int selected = usuarioView.jTableUsuarios.getSelectedRow();
+
+                    usuarioView.setUsuario(usuarioView.jTableUsuarios.getValueAt(selected, 1).toString());
+                    usuarioView.setLogin(usuarioView.jTableUsuarios.getValueAt(selected, 2).toString());
+                }
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent me) {
+            if (usuarioView.jTableUsuarios == me.getSource()) {
+                if (usuarioView.jTableUsuarios.getSelectedRow() != -1) {
+                    int selected = usuarioView.jTableUsuarios.getSelectedRow();
+
+                    usuarioView.setUsuario(usuarioView.jTableUsuarios.getValueAt(selected, 1).toString());
+                    usuarioView.setLogin(usuarioView.jTableUsuarios.getValueAt(selected, 2).toString());
+                }
+            }
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent me) {
+            System.out.println("");
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent me) {
+            System.out.println("");
+        }
+
+        @Override
+        public void mouseExited(MouseEvent me) {
+            System.out.println("");
+        }
+
     }
 }

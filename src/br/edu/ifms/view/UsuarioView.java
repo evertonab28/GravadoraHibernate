@@ -1,6 +1,7 @@
 package br.edu.ifms.view;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.sql.*;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -18,8 +19,6 @@ public class UsuarioView extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableUsuarios = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -56,11 +55,6 @@ public class UsuarioView extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTableUsuarios);
 
-        jLabel1.setText("Código:");
-
-        txtCodigo.setBackground(new java.awt.Color(102, 102, 102));
-        txtCodigo.setEnabled(false);
-
         jLabel2.setText("Usuário:");
 
         jLabel3.setText("Login");
@@ -82,15 +76,11 @@ public class UsuarioView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(3, 3, 3)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextUsuario))
+                            .addComponent(jTextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -98,7 +88,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
                             .addGap(31, 31, 31)
                             .addComponent(jLabel4)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)))
+                            .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -109,7 +99,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
                             .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(50, 50, 50)
                             .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(txtPesquisar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)))
+                        .addComponent(txtPesquisar, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(74, 74, 74))
         );
 
@@ -121,11 +111,9 @@ public class UsuarioView extends javax.swing.JInternalFrame {
                 .addGap(13, 13, 13)
                 .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jTextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -153,7 +141,6 @@ public class UsuarioView extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnDeletar;
     public javax.swing.JButton btnEditar;
     public javax.swing.JButton btnLimpar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -162,7 +149,6 @@ public class UsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextLogin;
     private javax.swing.JPasswordField jTextSenha;
     private javax.swing.JTextField jTextUsuario;
-    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
 
@@ -195,6 +181,10 @@ public class UsuarioView extends javax.swing.JInternalFrame {
         btnEditar.addActionListener(actionListener);
         btnDeletar.addActionListener(actionListener);
         btnLimpar.addActionListener(actionListener);
+    }
+    
+    public void addTableListener(MouseListener mouseListener){
+        jTableUsuarios.addMouseListener(mouseListener);
     }
 
 }
