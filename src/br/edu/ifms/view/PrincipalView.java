@@ -1,6 +1,8 @@
 package br.edu.ifms.view;
 
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PrincipalView extends javax.swing.JFrame {
 
@@ -45,11 +47,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_MASK));
         jMenuUsuario.setText("Usuários");
-        jMenuUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuUsuarioActionPerformed(evt);
-            }
-        });
         jMenu1.add(jMenuUsuario);
 
         jMenuAlbum.setText("Álbuns");
@@ -124,19 +121,11 @@ public class PrincipalView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUsuarioActionPerformed
-//
-//        formCadUsuarios form = new formCadUsuarios();
-//        form.setVisible(true);
-//        jDesktopPane1.add(form);
-
-    }//GEN-LAST:event_jMenuUsuarioActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
@@ -172,7 +161,7 @@ public class PrincipalView extends javax.swing.JFrame {
 //        formConsMusicasLayout fconmuslay = new formConsMusicasLayout();
 //        fconmuslay.setVisible(true);
 //        jDesktopPane1.add(fconmuslay);
-        
+
     }//GEN-LAST:event_jMenuItem8ActionPerformed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -197,4 +186,11 @@ public class PrincipalView extends javax.swing.JFrame {
     public javax.swing.JMenuItem jMenuMusica;
     public javax.swing.JMenuItem jMenuUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public void addActionMenu(ActionListener ActionMenu) {
+
+        jMenuUsuario.addActionListener(ActionMenu);
+
+    }
+
 }

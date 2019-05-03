@@ -17,15 +17,14 @@ public class LoginController {
 
     private Usuario usuario;
     private LoginView loginView;
-    private PrincipalView formPrincipal;
+    //private PrincipalView formPrincipal;
     private UsuarioView usuarioView;
-    
+
     public LoginController(Usuario usuario, LoginView view) {
         this.usuario = usuario;
         this.loginView = view;
-
         this.loginView.addListenerLogin(new ListenerLogin());
-        
+
     }
 
     public void startLogin() {
@@ -37,28 +36,28 @@ public class LoginController {
     }
 
     public void startFormPrincipal() {
-        formPrincipal = new PrincipalView();
-        formPrincipal.setTitle("EW Records System 2.0");
+
+        PrincipalView formPrincipal = new PrincipalView();
+        PrincipalController pc = new PrincipalController(formPrincipal);
         formPrincipal.setVisible(true);
-    }
-
-    public void startUsuarioView(){
-        
-        formPrincipal.jDesktopPane1.add(usuarioView);
-        UsuarioView();
-    }
-    
-    public void UsuarioView() {
-        UsuarioTableModel tableModel = new UsuarioTableModel();
-        usuarioView.tblUsuarios.setModel(tableModel);
 
     }
 
+//    public void startUsuarioView(){
+//        
+//        formPrincipal.jDesktopPane1.add(usuarioView);
+//        UsuarioView();
+//    }
+//    
+//    public void UsuarioView() {
+//        UsuarioTableModel tableModel = new UsuarioTableModel();
+//        usuarioView.tblUsuarios.setModel(tableModel);
+//
+//    }
     public class ListenerLogin implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-
             UsuarioDAO usuarioDao = new UsuarioDAO();
             usuario = usuarioDao.findByLoginSenha(loginView.getLogin(), loginView.getSenha());
             if (usuario == null) {
@@ -74,15 +73,14 @@ public class LoginController {
         }
 
     }
-    
-    public class ListenerUsuarioView implements ActionListener{
 
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-            startUsuarioView();
-        }
-        
-        
-    }
-
+//    public class ListenerUsuarioView implements ActionListener{
+//
+//        @Override
+//        public void actionPerformed(ActionEvent ae) {
+//            startUsuarioView();
+//        }
+//        
+//        
+//    }
 }
