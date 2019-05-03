@@ -1,6 +1,6 @@
 package br.edu.ifms.controller;
 
-import br.edu.ifms.dao.UsuarioDAO;
+import br.edu.ifms.dao.LoginDAO;
 import br.edu.ifms.model.Usuario;
 import br.edu.ifms.view.LoginView;
 import br.edu.ifms.view.PrincipalView;
@@ -55,7 +55,7 @@ public class LoginController {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            UsuarioDAO usuarioDao = new UsuarioDAO();
+            LoginDAO usuarioDao = new LoginDAO();
             usuario = usuarioDao.findByLoginSenha(loginView.getLogin(), loginView.getSenha());
             if (usuario == null) {
                 JOptionPane.showMessageDialog(loginView, "Usuario/Senha inválido",

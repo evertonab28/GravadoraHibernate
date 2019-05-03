@@ -16,7 +16,6 @@ public class PrincipalController {
     public PrincipalController(PrincipalView pView) {
         this.pView = pView;
         this.pView.addActionMenu(new ActionMenu());
-        System.out.println("CONTROLLER INICIADO");
 
 //        formPrincipal.setTitle("EW Records System 2.0");
 //        formPrincipal.setVisible(true);
@@ -28,12 +27,11 @@ public class PrincipalController {
         public void actionPerformed(ActionEvent ae) {
 
             if (ae.getSource() == pView.jMenuUsuario) {
-                System.out.println("Usuario OK!");
                 usuarioView = new UsuarioView();
                 Usuario usuario = new Usuario();
                 UsuarioController usuarioCtrl = new UsuarioController(usuario, usuarioView);
+                pView.jDesktopPane1.add(usuarioView);
                 usuarioView.setVisible(true);
-                pView.getContentPane().add(usuarioView);
 
             }
 //            if (ae.getSource() == pView.jMenuAlbum) {

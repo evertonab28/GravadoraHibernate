@@ -7,7 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 
-public class UsuarioDAO extends DaoGenerico{
+public class LoginDAO extends DaoGenerico{
 
 private final static EntityManager MANAGER = ConnectionFactory.getEntityManager();
 
