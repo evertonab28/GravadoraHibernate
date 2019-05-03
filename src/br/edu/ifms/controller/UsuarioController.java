@@ -52,28 +52,11 @@ public class UsuarioController {
         @Override
         public void actionPerformed(ActionEvent ae) {
             if (ae.getSource() == usuarioView.btnCadastrar) {
-                usuario = new Usuario();
-                DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
-
-                if (usuarioView.getUsuario().isEmpty() || usuarioView.getLogin().isEmpty() || usuarioView.getSenha().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
-                } else {
-
-                    usuario.setUsuario(usuarioView.getUsuario());
-                    usuario.setLogin(usuarioView.getLogin());
-                    usuario.setSenha(usuarioView.getSenha());
-
-                    daoUsuario.saveOrUpdate(usuario);
-
-                    limparCampos();
-                    fillTable();
-
-                }
-
+                cadastrarUsuario();
             }
 
             if (ae.getSource() == usuarioView.btnEditar) {
-                System.out.println("EDITAR");
+                editarUsuario();
             }
 
             if (ae.getSource() == usuarioView.btnDeletar) {
@@ -83,6 +66,44 @@ public class UsuarioController {
             if (ae.getSource() == usuarioView.btnLimpar) {
                 limparCampos();
             }
+        }
+    }
+
+    public void cadastrarUsuario() {
+        usuario = new Usuario();
+        DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
+
+        if (usuarioView.getUsuario().isEmpty() || usuarioView.getLogin().isEmpty() || usuarioView.getSenha().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+        } else {
+
+            usuario.setUsuario(usuarioView.getUsuario());
+            usuario.setLogin(usuarioView.getLogin());
+            usuario.setSenha(usuarioView.getSenha());
+            daoUsuario.saveOrUpdate(usuario);
+
+            limparCampos();
+            fillTable();
+
+        }
+    }
+
+    public void editarUsuario() {
+
+        if (usuarioView.jTableUsuarios.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(null, "Selecione algum usuário!");
+        } else {
+            usuario = new Usuario();
+            DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
+
+            usuario.setUsuario(usuarioView.getUsuario());
+            usuario.setLogin(usuarioView.getLogin());
+            usuario.setSenha(usuarioView.getSenha());
+            usuario.setId((long) usuarioView.jTableUsuarios.getValueAt(usuarioView.jTableUsuarios.getSelectedRow(), 0));
+            daoUsuario.saveOrUpdate(usuario);
+
+            limparCampos();
+            fillTable();
         }
     }
 
