@@ -6,13 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import org.hibernate.annotations.Type;
 
 @Entity
 public class Album implements EntidadeBase {
 
     private Long id;
     private String album;
-    private Date Datacadastro;
+    private Date datalancamento;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,13 +36,15 @@ public class Album implements EntidadeBase {
         this.album = album;
     }
 
-    @Column(name = "datacadastro")
-    public Date getDatacadastro() {
-        return Datacadastro;
+    @Column(name = "datalançamento")
+    @Type(type="date")
+//    @Temporal(javax.persistence.TemporalType.DATE)
+    public Date getDatalancamento() {
+        return datalancamento;
     }
 
-    public void setDatacadastro(Date Datacadastro) {
-        this.Datacadastro = Datacadastro;
+    public void setDatalancamento(Date Datalancamento) {
+        this.datalancamento = Datalancamento;
     }
 
 }

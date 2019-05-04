@@ -16,14 +16,15 @@ public class InsertApplication {
         
         usuario.setUsuario("Administrador");
         usuario.setLogin("admin");
-        usuario.setSenha("1234");       
+        usuario.setSenha("1");       
         
+        /*
         //ALBUM
         Album album = new Album();
         DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
         
         album.setAlbum("Album 1");
-        
+                
         //ARTISTA
         Artista artista = new Artista();
         DaoGenerico<Artista> daoArtista = new DaoGenerico<>();
@@ -48,15 +49,15 @@ public class InsertApplication {
         musica.setArtista(artista);
         musica.setCompositor(compositor);
         
-        
+        */
         //COMMIT
         daoUser.saveOrUpdate(usuario);
+        /*
         daoAlbum.saveOrUpdate(album);
         daoArtista.saveOrUpdate(artista);
         daoCompositor.saveOrUpdate(compositor);
-
         daoMusica.saveOrUpdate(musica);
-        
+        */
         System.out.println("Entidades salvas com sucesso!");
 
     }

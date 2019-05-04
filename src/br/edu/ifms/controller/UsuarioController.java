@@ -21,7 +21,7 @@ public class UsuarioController {
         this.usuarioView = usuarioView;
         this.usuarioView.addButtonListener(new ButtonListener());
         this.usuarioView.addTableListener(new TableListener());
-        DefaultTableModel model = (DefaultTableModel) this.usuarioView.jTableUsuarios.getModel();
+        DefaultTableModel model = (DefaultTableModel) this.usuarioView.jTableUsuarios.getModel();      
         this.usuarioView.jTableUsuarios.setRowSorter(new TableRowSorter(model));
         fillTable();
 

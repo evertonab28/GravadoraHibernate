@@ -1,6 +1,8 @@
 package br.edu.ifms.controller;
 
+import br.edu.ifms.model.Album;
 import br.edu.ifms.model.Usuario;
+import br.edu.ifms.view.AlbumView;
 import br.edu.ifms.view.PrincipalView;
 import br.edu.ifms.view.UsuarioView;
 import java.awt.event.ActionEvent;
@@ -12,13 +14,11 @@ public class PrincipalController {
 
     private PrincipalView pView;
     private UsuarioView usuarioView;
+    private AlbumView albumView;
 
     public PrincipalController(PrincipalView pView) {
         this.pView = pView;
         this.pView.addActionMenu(new ActionMenu());
-
-//        formPrincipal.setTitle("EW Records System 2.0");
-//        formPrincipal.setVisible(true);
     }
 
     public class ActionMenu implements ActionListener {
@@ -34,9 +34,13 @@ public class PrincipalController {
                 usuarioView.setVisible(true);
 
             }
-//            if (ae.getSource() == pView.jMenuAlbum) {
-//
-//            }
+            if (ae.getSource() == pView.jMenuAlbum) {
+                albumView = new AlbumView();
+                Album album = new Album();
+                AlbumController albumCtrl = new AlbumController(album, albumView);
+                pView.jDesktopPane1.add(albumView);
+                albumView.setVisible(true);
+            }
 //            if (ae.getSource() == pView.jMenuArtista) {
 //
 //            }

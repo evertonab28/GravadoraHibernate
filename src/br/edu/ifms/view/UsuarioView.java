@@ -2,9 +2,6 @@ package br.edu.ifms.view;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
-import java.sql.*;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 public class UsuarioView extends javax.swing.JInternalFrame {
 
