@@ -96,13 +96,18 @@ public class AlbumController {
             album = new Album();
             DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
 
-            album.setAlbum(albumView.getAlbum());
-            album.setDatalancamento(albumView.getDate());
-            album.setId((long) albumView.jTableAlbuns.getValueAt(albumView.jTableAlbuns.getSelectedRow(), 0));
-            daoAlbum.saveOrUpdate(album);
+            if (albumView.getAlbum().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "O campo Album não pode estar vazio!");
+            } else {
+                album.setAlbum(albumView.getAlbum());
+                album.setDatalancamento(albumView.getDate());
+                album.setId((long) albumView.jTableAlbuns.getValueAt(albumView.jTableAlbuns.getSelectedRow(), 0));
+                daoAlbum.saveOrUpdate(album);
 
-            clearFields();
-            fillTable();
+                clearFields();
+                fillTable();
+            }
+
         } else {
             JOptionPane.showMessageDialog(null, "Selecione algum album!");
         }

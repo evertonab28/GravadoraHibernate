@@ -40,17 +40,6 @@ public class LoginController {
 
     }
 
-//    public void startUsuarioView(){
-//        
-//        formPrincipal.jDesktopPane1.add(usuarioView);
-//        UsuarioView();
-//    }
-//    
-//    public void UsuarioView() {
-//        UsuarioTableModel tableModel = new UsuarioTableModel();
-//        usuarioView.tblUsuarios.setModel(tableModel);
-//
-//    }
     public class ListenerLogin implements ActionListener {
 
         @Override

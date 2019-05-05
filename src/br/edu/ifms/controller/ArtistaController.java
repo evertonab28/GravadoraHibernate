@@ -89,14 +89,20 @@ public class ArtistaController {
             artista = new Artista();
             DaoGenerico<Artista> daoArtista = new DaoGenerico<>();
 
-            artista.setNomeArtista(artistaView.getArtista());
-            artista.setTelefoneArtista(artistaView.getTelefone());
-            artista.setEnderecoArtista(artistaView.getEndereco());
-            artista.setId((long) artistaView.jTableArtistas.getValueAt(artistaView.jTableArtistas.getSelectedRow(), 0));
-            daoArtista.saveOrUpdate(artista);
+            if (artistaView.getArtista().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "O campo nome não pode estar vazio!");
+            } else {
 
-            clearFields();
-            fillTable();
+                artista.setNomeArtista(artistaView.getArtista());
+                artista.setTelefoneArtista(artistaView.getTelefone());
+                artista.setEnderecoArtista(artistaView.getEndereco());
+                artista.setId((long) artistaView.jTableArtistas.getValueAt(artistaView.jTableArtistas.getSelectedRow(), 0));
+                daoArtista.saveOrUpdate(artista);
+
+                clearFields();
+                fillTable();
+            }
+
         } else {
             JOptionPane.showMessageDialog(null, "Selecione algum artista!");
         }

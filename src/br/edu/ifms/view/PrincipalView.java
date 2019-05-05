@@ -9,6 +9,7 @@ public class PrincipalView extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setResizable(true);
+        this.setTitle("EW Records System 2.0");
     }
 
     @SuppressWarnings("unchecked")
@@ -127,6 +128,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuUsuario.addActionListener(ActionMenu);
         jMenuAlbum.addActionListener(ActionMenu);
         jMenuArtista.addActionListener(ActionMenu);
+        jMenuCompositor.addActionListener(ActionMenu);
     }
 
 }
