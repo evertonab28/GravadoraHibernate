@@ -37,7 +37,7 @@ public class Album implements EntidadeBase {
     }
 
     @Column(name = "datalançamento")
-    @Type(type="date")
+    @Type(type = "date")
 //    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getDatalancamento() {
         return datalancamento;
@@ -45,6 +45,11 @@ public class Album implements EntidadeBase {
 
     public void setDatalancamento(Date Datalancamento) {
         this.datalancamento = Datalancamento;
+    }
+
+    @Override
+    public String toString() {
+        return getAlbum();
     }
 
 }

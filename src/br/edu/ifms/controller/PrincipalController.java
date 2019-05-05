@@ -3,10 +3,12 @@ package br.edu.ifms.controller;
 import br.edu.ifms.model.Album;
 import br.edu.ifms.model.Artista;
 import br.edu.ifms.model.Compositor;
+import br.edu.ifms.model.Musica;
 import br.edu.ifms.model.Usuario;
 import br.edu.ifms.view.AlbumView;
 import br.edu.ifms.view.ArtistaView;
 import br.edu.ifms.view.CompositorView;
+import br.edu.ifms.view.MusicaView;
 import br.edu.ifms.view.PrincipalView;
 import br.edu.ifms.view.UsuarioView;
 import java.awt.event.ActionEvent;
@@ -19,6 +21,7 @@ public class PrincipalController {
     private AlbumView albumView;
     private ArtistaView artistaView;
     private CompositorView compositorView;
+    private MusicaView musicaView;
     
     public PrincipalController(PrincipalView pView) {
         this.pView = pView;
@@ -59,9 +62,13 @@ public class PrincipalController {
                 pView.jDesktopPane1.add(compositorView);
                 compositorView.setVisible(true);
             }
-//            if (ae.getSource() == pView.jMenuMusica) {
-//
-//            }
+            if (ae.getSource() == pView.jMenuMusica) {
+                musicaView = new MusicaView();
+                Musica musica = new Musica();
+                MusicaController musicaCtrl = new MusicaController(musica, musicaView);
+                pView.jDesktopPane1.add(musicaView);
+                musicaView.setVisible(true);
+            }
 
         }
         

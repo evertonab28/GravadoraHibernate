@@ -78,7 +78,6 @@ public class CompositorController {
             compositor.setEnderecoCompositor(compositorView.getEndereco());
 
             daoCompositor.saveOrUpdate(compositor);
-
             clearFields();
             fillTable();
         }

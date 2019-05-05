@@ -51,6 +51,10 @@ public class Artista implements EntidadeBase {
     public void setTelefoneArtista(String telefoneArtista) {
         this.telefoneArtista = telefoneArtista;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return getNomeArtista();
+    }
+
 }

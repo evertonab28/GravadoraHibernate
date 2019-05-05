@@ -129,6 +129,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuAlbum.addActionListener(ActionMenu);
         jMenuArtista.addActionListener(ActionMenu);
         jMenuCompositor.addActionListener(ActionMenu);
+        jMenuMusica.addActionListener(ActionMenu);
     }
 
 }

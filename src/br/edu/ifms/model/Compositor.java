@@ -52,4 +52,9 @@ public class Compositor implements EntidadeBase {
         this.telefoneCompositor = telefoneCompositor;
     }
 
+    @Override
+    public String toString() {
+        return getNomeCompositor();
+    }
+
 }

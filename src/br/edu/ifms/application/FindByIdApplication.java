@@ -1,6 +1,7 @@
 package br.edu.ifms.application;
 
 import br.edu.ifms.dao.DaoGenerico;
+import br.edu.ifms.model.Musica;
 import br.edu.ifms.model.Usuario;
 
 
@@ -18,6 +19,17 @@ public class FindByIdApplication {
         System.out.println("NOME: " + usuario.getUsuario());
 
         System.out.println("");
+        
+        DaoGenerico<Musica> daoMusica = new DaoGenerico<>();
+        
+        Musica musica = daoMusica.findById(Musica.class, 1L);
+        
+        System.out.println("### Entidade Musica encontrada ###");
+        System.out.println("ID: " + musica.getId());
+        System.out.println("Musica: "+ musica.getMusica());
+        System.out.println("Album: " + musica.getAlbum());
+        System.out.println("Artista: " + musica.getArtista());
+        System.out.println("Compositor: " + musica.getCompositor());
 
 //        System.out.println("### Entidade Carro encontrada ###");
 //        System.out.println("ID: " + usuario.getId());
