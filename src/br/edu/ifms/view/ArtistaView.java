@@ -2,58 +2,55 @@ package br.edu.ifms.view;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
-import java.util.Date;
 
-public class AlbumView extends javax.swing.JInternalFrame {
-
-    public AlbumView() {
+public class ArtistaView extends javax.swing.JInternalFrame {
+    
+    public ArtistaView() {
         initComponents();
         this.setLocation(350, 100);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAlbuns = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jTextAlbum = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jTableArtistas = new javax.swing.JTable();
         btnCadastrar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         txtPesquisar = new javax.swing.JTextField();
-        JXDateDataLancamento = new org.jdesktop.swingx.JXDatePicker();
+        jLabel4 = new javax.swing.JLabel();
+        jTextEndereco = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextArtista = new javax.swing.JTextField();
+        jTextTelefone = new javax.swing.JFormattedTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setClosable(true);
         setIconifiable(true);
-        setTitle("Cadastro de Albuns");
+        setTitle("Cadastro de Artistas");
         setPreferredSize(new java.awt.Dimension(640, 397));
 
-        jTableAlbuns.setModel(new javax.swing.table.DefaultTableModel(
+        jTableArtistas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Album", "Data de Lançamento"
+                "Código", "Artista", "Telefone", "Endereço"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTableAlbuns);
-
-        jLabel2.setText("Nome do album:");
-
-        jLabel3.setText("Data de Lançamento:");
+        jScrollPane1.setViewportView(jTableArtistas);
 
         btnCadastrar.setText("Cadastrar");
 
@@ -63,11 +60,17 @@ public class AlbumView extends javax.swing.JInternalFrame {
 
         btnLimpar.setText("Limpar");
 
-        JXDateDataLancamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JXDateDataLancamentoActionPerformed(evt);
-            }
-        });
+        jLabel4.setText("Endereço:");
+
+        jLabel2.setText("Nome:");
+
+        try {
+            jTextTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jLabel3.setText("Telefone:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,14 +80,15 @@ public class AlbumView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
+                            .addComponent(txtPesquisar, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnCadastrar)
                                 .addGap(51, 51, 51)
                                 .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -92,12 +96,17 @@ public class AlbumView extends javax.swing.JInternalFrame {
                                 .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(50, 50, 50)
                                 .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPesquisar, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(10, 10, 10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JXDateDataLancamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -109,22 +118,24 @@ public class AlbumView extends javax.swing.JInternalFrame {
                 .addGap(13, 13, 13)
                 .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(JXDateDataLancamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar)
                     .addComponent(btnEditar)
                     .addComponent(btnDeletar)
                     .addComponent(btnLimpar))
-                .addGap(31, 31, 31))
+                .addGap(30, 30, 30))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCadastrar, btnDeletar, btnEditar, btnLimpar});
@@ -132,49 +143,57 @@ public class AlbumView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JXDateDataLancamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JXDateDataLancamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JXDateDataLancamentoActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public org.jdesktop.swingx.JXDatePicker JXDateDataLancamento;
     public javax.swing.JButton btnCadastrar;
     public javax.swing.JButton btnDeletar;
     public javax.swing.JButton btnEditar;
     public javax.swing.JButton btnLimpar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jTableAlbuns;
-    private javax.swing.JTextField jTextAlbum;
+    public static javax.swing.JTable jTableArtistas;
+    private javax.swing.JTextField jTextArtista;
+    private javax.swing.JTextField jTextEndereco;
+    private javax.swing.JFormattedTextField jTextTelefone;
     private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
 
-    public String getAlbum() {
-        return jTextAlbum.getText();
-    }
-
-    public void setAlbum(String album) {
-        this.jTextAlbum.setText(album);
+    public String getArtista() {
+        return jTextArtista.getText();
     }
     
-    public Date getDate(){
-        return JXDateDataLancamento.getDate();
+    public void setArtista(String jTextArtista) {
+        this.jTextArtista.setText(jTextArtista);
     }
     
-    public void setDate(Date date){
-        this.JXDateDataLancamento.setDate(date);
+    public String getTelefone(){
+        return jTextTelefone.getText();
+    }
+    
+    public void setTelefone(String jTextTelefone){
+        this.jTextTelefone.setText(jTextTelefone);
     }
 
+    public String getEndereco() {
+        return jTextEndereco.getText();
+    }
+
+    public void setEndereco(String jTextEndereco) {
+        this.jTextEndereco.setText(jTextEndereco);
+    }
+    
+    
+    
     public void addButtonListener(ActionListener actionListener) {
         btnCadastrar.addActionListener(actionListener);
         btnEditar.addActionListener(actionListener);
         btnDeletar.addActionListener(actionListener);
         btnLimpar.addActionListener(actionListener);
     }
-
+    
     public void addTableListener(MouseListener mouseListener) {
-        jTableAlbuns.addMouseListener(mouseListener);
+        jTableArtistas.addMouseListener(mouseListener);
     }
-
+    
 }

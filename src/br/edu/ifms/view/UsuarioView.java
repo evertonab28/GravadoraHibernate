@@ -31,7 +31,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(204, 204, 204));
         setClosable(true);
         setIconifiable(true);
-        setTitle("Cadastro de usuários");
+        setTitle("Cadastro de Usuários");
         setPreferredSize(new java.awt.Dimension(640, 397));
 
         jTableUsuarios.setModel(new javax.swing.table.DefaultTableModel(

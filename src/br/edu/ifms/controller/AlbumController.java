@@ -133,7 +133,15 @@ public class AlbumController {
                     int selected = albumView.jTableAlbuns.getSelectedRow();
 
                     albumView.setAlbum(albumView.jTableAlbuns.getValueAt(selected, 1).toString());
-                    albumView.setDate((Date) albumView.jTableAlbuns.getValueAt(selected, 2));
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    try {
+                        Date data = sdf.parse(albumView.jTableAlbuns.getValueAt(selected, 2).toString());
+                        albumView.setDate(data);
+                        //albumView.setDate((Date) albumView.jTableAlbuns.getValueAt(selected, 2));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(AlbumController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
         }
