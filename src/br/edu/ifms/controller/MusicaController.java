@@ -26,8 +26,11 @@ public class MusicaController {
         this.musicaView = musicaView;
         this.musicaView.addButtonListener(new ButtonListener());
         this.musicaView.addTableListener(new TableListener());
-        DefaultTableModel model = (DefaultTableModel) this.musicaView.jTableMusicas.getModel();
-        this.musicaView.jTableMusicas.setRowSorter(new TableRowSorter(model));
+        //DefaultTableModel model = (DefaultTableModel) this.musicaView.jTableMusicas.getModel();
+        DefaultTableModel model = (DefaultTableModel) this.musicaView.getTableM();
+        
+        //this.musicaView.jTableMusicas.setRowSorter(new TableRowSorter(model));
+        this.musicaView.getTable().setRowSorter(new TableRowSorter(model));
         populaComboBoxArtista();
         populaComboBoxCompositor();
         populaComboBoxAlbum();
@@ -35,7 +38,8 @@ public class MusicaController {
     }
 
     public void fillTable() {
-        DefaultTableModel model = (DefaultTableModel) musicaView.jTableMusicas.getModel();
+        //DefaultTableModel model = (DefaultTableModel) musicaView.jTableMusicas.getModel();
+        DefaultTableModel model = (DefaultTableModel) musicaView.getTableM();
         model.setNumRows(0);
         DaoGenerico<Musica> daoMusica = new DaoGenerico<>();
 
@@ -109,7 +113,8 @@ public class MusicaController {
     }
 
     public void editarMusica() {
-        if (musicaView.jTableMusicas.getSelectedRow() != -1) {
+        //if (musicaView.jTableMusicas.getSelectedRow() != -1) {
+        if (musicaView.getTable().getSelectedRow() != -1) {
             musica = new Musica();
             DaoGenerico<Musica> daoMusica = new DaoGenerico<>();
 
@@ -120,7 +125,8 @@ public class MusicaController {
                 musica.setArtista((Artista) musicaView.ComboBoxArtista.getSelectedItem());
                 musica.setCompositor((Compositor) musicaView.ComboBoxCompositor.getSelectedItem());
                 musica.setAlbum((Album) musicaView.ComboBoxAlbum.getSelectedItem());
-                musica.setId((long) musicaView.jTableMusicas.getValueAt(musicaView.jTableMusicas.getSelectedRow(), 0));
+                //musica.setId((long) musicaView.jTableMusicas.getValueAt(musicaView.jTableMusicas.getSelectedRow(), 0));
+                musica.setId((long) musicaView.getTable().getValueAt(musicaView.getTable().getSelectedRow(), 0));
 
                 daoMusica.saveOrUpdate(musica);
                 clearFields();
@@ -132,10 +138,12 @@ public class MusicaController {
     }
 
     public void deletarMusica() {
-        if (musicaView.jTableMusicas.getSelectedRow() != -1) {
+        //if (musicaView.jTableMusicas.getSelectedRow() != -1) {
+        if (musicaView.getTable().getSelectedRow() != -1) {
             musica = new Musica();
             DaoGenerico<Musica> daoMusica = new DaoGenerico<>();
-            musica.setId((long) musicaView.jTableMusicas.getValueAt(musicaView.jTableMusicas.getSelectedRow(), 0));
+            //musica.setId((long) musicaView.jTableMusicas.getValueAt(musicaView.jTableMusicas.getSelectedRow(), 0));
+            musica.setId((long) musicaView.getTable().getValueAt(musicaView.getTable().getSelectedRow(), 0));
             daoMusica.remove(Musica.class, musica.getId());
             fillTable();
             JOptionPane.showMessageDialog(null, "Música deletada com sucesso!");
@@ -187,28 +195,47 @@ public class MusicaController {
 
         @Override
         public void mouseClicked(MouseEvent me) {
-            if (musicaView.jTableMusicas == me.getSource()) {
-                if (musicaView.jTableMusicas.getSelectedRow() != -1) {
-                    int selected = musicaView.jTableMusicas.getSelectedRow();
+            //if (musicaView.jTableMusicas == me.getSource()) {
+            if (musicaView.getTable() == me.getSource()) {
+                if (musicaView.getTable().getSelectedRow() != -1) {
+                    //int selected = musicaView.jTableMusicas.getSelectedRow();
+                    int selected = musicaView.getTable().getSelectedRow();
 
-                    musicaView.setMusica(musicaView.jTableMusicas.getValueAt(selected, 1).toString());
-                    musicaView.ComboBoxArtista.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 2));
-                    musicaView.ComboBoxCompositor.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 3));
-                    musicaView.ComboBoxAlbum.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 4));
+                    //musicaView.setMusica(musicaView.jTableMusicas.getValueAt(selected, 1).toString());
+                    musicaView.setMusica(musicaView.getTable().getValueAt(selected, 1).toString());
+                    
+                   //musicaView.ComboBoxArtista.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 2));
+                    musicaView.ComboBoxArtista.setSelectedItem(musicaView.getTable().getValueAt(selected, 2));
+                    
+                   // musicaView.ComboBoxCompositor.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 3));
+                    musicaView.ComboBoxCompositor.setSelectedItem(musicaView.getTable().getValueAt(selected, 3));
+                    
+                    //musicaView.ComboBoxAlbum.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 4));
+                    musicaView.ComboBoxAlbum.setSelectedItem(musicaView.getTable().getValueAt(selected, 4));
                 }
             }
         }
 
         @Override
         public void mousePressed(MouseEvent me) {
-            if (musicaView.jTableMusicas == me.getSource()) {
-                if (musicaView.jTableMusicas.getSelectedRow() != -1) {
-                    int selected = musicaView.jTableMusicas.getSelectedRow();
+            //if (musicaView.jTableMusicas == me.getSource()) {
+            if (musicaView.getTable() == me.getSource()) {
+                //if (musicaView.jTableMusicas.getSelectedRow() != -1) {
+                if (musicaView.getTable().getSelectedRow() != -1) {
+                    //int selected = musicaView.jTableMusicas.getSelectedRow();
+                    int selected = musicaView.getTable().getSelectedRow();
 
-                    musicaView.setMusica(musicaView.jTableMusicas.getValueAt(selected, 1).toString());
-                    musicaView.ComboBoxArtista.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 2));
-                    musicaView.ComboBoxCompositor.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 3));
-                    musicaView.ComboBoxAlbum.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 4));
+                    //musicaView.setMusica(musicaView.jTableMusicas.getValueAt(selected, 1).toString());
+                    musicaView.setMusica(musicaView.getTable().getValueAt(selected, 1).toString());
+                    
+                    //musicaView.ComboBoxArtista.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 2));
+                    musicaView.ComboBoxArtista.setSelectedItem(musicaView.getTable().getValueAt(selected, 2));
+                    
+                    //musicaView.ComboBoxCompositor.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 3));
+                    musicaView.ComboBoxCompositor.setSelectedItem(musicaView.getTable().getValueAt(selected, 3));
+                    
+                    //musicaView.ComboBoxAlbum.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 4));
+                    musicaView.ComboBoxAlbum.setSelectedItem(musicaView.getTable().getValueAt(selected, 4));
                 }
             }
         }

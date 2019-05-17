@@ -2,6 +2,9 @@ package br.edu.ifms.view;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 public class MusicaView extends javax.swing.JInternalFrame {
 
@@ -109,7 +112,7 @@ public class MusicaView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jTableMusicas;
+    private static javax.swing.JTable jTableMusicas;
     private javax.swing.JTextField jTextMusica;
     private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
@@ -133,6 +136,18 @@ public class MusicaView extends javax.swing.JInternalFrame {
 
     public void addTableListener(MouseListener mouseListener) {
         jTableMusicas.addMouseListener(mouseListener);
+    }
+    
+    public DefaultTableModel getTableM(){
+        return (DefaultTableModel) jTableMusicas.getModel();
+    }
+    
+    public void setRS(DefaultTableModel model){
+        this.jTableMusicas.setRowSorter(new TableRowSorter(model));
+    }
+    
+    public JTable getTable(){
+        return jTableMusicas;
     }
 
 }
