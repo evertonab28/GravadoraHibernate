@@ -30,14 +30,19 @@ public class AlbumController {
         this.albumView.JXDateDataLancamento.setDate(Calendar.getInstance().getTime());
         this.albumView.addButtonListener(new ButtonListener());
         this.albumView.addTableListener(new TableListener());
-        DefaultTableModel model = (DefaultTableModel) this.albumView.jTableAlbuns.getModel();
-        this.albumView.jTableAlbuns.setRowSorter(new TableRowSorter(model));
+        //DefaultTableModel model = (DefaultTableModel) this.albumView.jTableAlbuns.getModel();
+        DefaultTableModel model = (DefaultTableModel) this.albumView.getTableM();
+        
+        //this.albumView.jTableAlbuns.setRowSorter(new TableRowSorter(model));
+        this.albumView.getTable().setRowSorter(new TableRowSorter(model));
         fillTable();
 
     }
 
     public void fillTable() {
-        DefaultTableModel model = (DefaultTableModel) albumView.jTableAlbuns.getModel();
+       // DefaultTableModel model = (DefaultTableModel) albumView.jTableAlbuns.getModel();
+        DefaultTableModel model = (DefaultTableModel) albumView.getTableM();
+        
         model.setNumRows(0);
         DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -45,7 +50,8 @@ public class AlbumController {
             model.addRow(new Object[]{
                 a.getId(),
                 a.getAlbum(),
-                df.format(a.getDatalancamento()), //a.getDatalancamento()
+                //a.getDatalancamento()
+                df.format(a.getDatalancamento()) 
             });
         }
     }
@@ -92,7 +98,8 @@ public class AlbumController {
     }
 
     public void editarAlbum() {
-        if (albumView.jTableAlbuns.getSelectedRow() != -1) {
+        //if (albumView.jTableAlbuns.getSelectedRow() != -1) {
+        if (albumView.getTable().getSelectedRow() != -1) {
             album = new Album();
             DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
 
@@ -101,7 +108,8 @@ public class AlbumController {
             } else {
                 album.setAlbum(albumView.getAlbum());
                 album.setDatalancamento(albumView.getDate());
-                album.setId((long) albumView.jTableAlbuns.getValueAt(albumView.jTableAlbuns.getSelectedRow(), 0));
+                //album.setId((long) albumView.jTableAlbuns.getValueAt(albumView.jTableAlbuns.getSelectedRow(), 0));
+                album.setId((long) albumView.getTable().getValueAt(albumView.getTable().getSelectedRow(), 0));
                 daoAlbum.saveOrUpdate(album);
 
                 clearFields();
@@ -114,11 +122,13 @@ public class AlbumController {
     }
 
     public void deletarAlbum() {
-        if (albumView.jTableAlbuns.getSelectedRow() != -1) {
+        //if (albumView.jTableAlbuns.getSelectedRow() != -1) {
+        if (albumView.getTable().getSelectedRow() != -1) {
 
             album = new Album();
             DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
-            album.setId((long) albumView.jTableAlbuns.getValueAt(albumView.jTableAlbuns.getSelectedRow(), 0));
+            //album.setId((long) albumView.jTableAlbuns.getValueAt(albumView.jTableAlbuns.getSelectedRow(), 0));
+            album.setId((long) albumView.getTable().getValueAt(albumView.getTable().getSelectedRow(), 0));
 
             daoAlbum.remove(Album.class, album.getId());
             clearFields();
@@ -133,15 +143,20 @@ public class AlbumController {
 
         @Override
         public void mouseClicked(MouseEvent me) {
-            if (albumView.jTableAlbuns == me.getSource()) {
-                if (albumView.jTableAlbuns.getSelectedRow() != -1) {
-                    int selected = albumView.jTableAlbuns.getSelectedRow();
+            //if (albumView.jTableAlbuns == me.getSource()) {
+            if (albumView.getTable() == me.getSource()) {
+                //if (albumView.jTableAlbuns.getSelectedRow() != -1) {
+                if (albumView.getTable().getSelectedRow() != -1) {
+                    //int selected = albumView.jTableAlbuns.getSelectedRow();
+                    int selected = albumView.getTable().getSelectedRow();
 
-                    albumView.setAlbum(albumView.jTableAlbuns.getValueAt(selected, 1).toString());
+                    //albumView.setAlbum(albumView.jTableAlbuns.getValueAt(selected, 1).toString());
+                    albumView.setAlbum(albumView.getTable().getValueAt(selected, 1).toString());
 
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     try {
-                        Date data = sdf.parse(albumView.jTableAlbuns.getValueAt(selected, 2).toString());
+                        //Date data = sdf.parse(albumView.jTableAlbuns.getValueAt(selected, 2).toString());
+                        Date data = sdf.parse(albumView.getTable().getValueAt(selected, 2).toString());
                         albumView.setDate(data);
                         //albumView.setDate((Date) albumView.jTableAlbuns.getValueAt(selected, 2));
                     } catch (ParseException ex) {
@@ -153,15 +168,20 @@ public class AlbumController {
 
         @Override
         public void mousePressed(MouseEvent me) {
-            if (albumView.jTableAlbuns == me.getSource()) {
-                if (albumView.jTableAlbuns.getSelectedRow() != -1) {
-                    int selected = albumView.jTableAlbuns.getSelectedRow();
+            //if (albumView.jTableAlbuns == me.getSource()) {
+            if (albumView.getTable() == me.getSource()) {
+                //if (albumView.jTableAlbuns.getSelectedRow() != -1) {
+                if (albumView.getTable().getSelectedRow() != -1) {
+                   //int selected = albumView.jTableAlbuns.getSelectedRow();
+                    int selected = albumView.getTable().getSelectedRow();
 
-                    albumView.setAlbum(albumView.jTableAlbuns.getValueAt(selected, 1).toString());
+                    //albumView.setAlbum(albumView.jTableAlbuns.getValueAt(selected, 1).toString());
+                    albumView.setAlbum(albumView.getTable().getValueAt(selected, 1).toString());
 
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     try {
-                        Date data = sdf.parse(albumView.jTableAlbuns.getValueAt(selected, 2).toString());
+                        //Date data = sdf.parse(albumView.jTableAlbuns.getValueAt(selected, 2).toString());
+                        Date data = sdf.parse(albumView.getTable().getValueAt(selected, 2).toString());
                         albumView.setDate(data);
                         //albumView.setDate((Date) albumView.jTableAlbuns.getValueAt(selected, 2));
                     } catch (ParseException ex) {

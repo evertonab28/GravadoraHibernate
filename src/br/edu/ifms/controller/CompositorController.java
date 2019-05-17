@@ -21,13 +21,17 @@ public class CompositorController {
         this.compositorView = compositorView;
         this.compositorView.addButtonListener(new ButtonListener());
         this.compositorView.addTableListener(new TableListener());
-        DefaultTableModel model = (DefaultTableModel) this.compositorView.jTableCompositores.getModel();
-        this.compositorView.jTableCompositores.setRowSorter(new TableRowSorter(model));
+        //DefaultTableModel model = (DefaultTableModel) this.compositorView.jTableCompositores.getModel();
+        DefaultTableModel model = (DefaultTableModel) this.compositorView.getTableM();
+        
+        //this.compositorView.jTableCompositores.setRowSorter(new TableRowSorter(model));
+        this.compositorView.getTable().setRowSorter(new TableRowSorter(model));
         fillTable();
     }
 
     public void fillTable() {
-        DefaultTableModel model = (DefaultTableModel) compositorView.jTableCompositores.getModel();
+        //DefaultTableModel model = (DefaultTableModel) compositorView.jTableCompositores.getModel();
+        DefaultTableModel model = (DefaultTableModel) compositorView.getTableM();
         model.setNumRows(0);
         DaoGenerico<Compositor> daoCompositor = new DaoGenerico<>();
 
@@ -84,7 +88,8 @@ public class CompositorController {
     }
 
     public void editarCompositor() {
-        if (compositorView.jTableCompositores.getSelectedRow() != -1) {
+        //if (compositorView.jTableCompositores.getSelectedRow() != -1) {
+        if (compositorView.getTable().getSelectedRow() != -1) {
             compositor = new Compositor();
             DaoGenerico<Compositor> daoCompositor = new DaoGenerico<>();
 
@@ -94,7 +99,8 @@ public class CompositorController {
                 compositor.setNomeCompositor(compositorView.getCompositor());
                 compositor.setTelefoneCompositor(compositorView.getTelefone());
                 compositor.setEnderecoCompositor(compositorView.getEndereco());
-                compositor.setId((long) compositorView.jTableCompositores.getValueAt(compositorView.jTableCompositores.getSelectedRow(), 0));
+                //compositor.setId((long) compositorView.jTableCompositores.getValueAt(compositorView.jTableCompositores.getSelectedRow(), 0));
+                compositor.setId((long) compositorView.getTable().getValueAt(compositorView.getTable().getSelectedRow(), 0));
                 daoCompositor.saveOrUpdate(compositor);
 
                 clearFields();
@@ -107,11 +113,13 @@ public class CompositorController {
     }
 
     public void deletarCompositor() {
-        if (compositorView.jTableCompositores.getSelectedRow() != -1) {
+        //if (compositorView.jTableCompositores.getSelectedRow() != -1) {
+        if (compositorView.getTable().getSelectedRow() != -1) {
 
             compositor = new Compositor();
             DaoGenerico<Compositor> daoCompositor = new DaoGenerico<>();
-            compositor.setId((long) compositorView.jTableCompositores.getValueAt(compositorView.jTableCompositores.getSelectedRow(), 0));
+            //compositor.setId((long) compositorView.jTableCompositores.getValueAt(compositorView.jTableCompositores.getSelectedRow(), 0));
+            compositor.setId((long) compositorView.getTable().getValueAt(compositorView.getTable().getSelectedRow(), 0));
 
             daoCompositor.remove(Compositor.class, compositor.getId());
             clearFields();
@@ -126,26 +134,42 @@ public class CompositorController {
 
         @Override
         public void mouseClicked(MouseEvent me) {
-            if (compositorView.jTableCompositores == me.getSource()) {
-                if (compositorView.jTableCompositores.getSelectedRow() != -1) {
-                    int selected = compositorView.jTableCompositores.getSelectedRow();
+            //if (compositorView.jTableCompositores == me.getSource()) {
+            if (compositorView.getTable() == me.getSource()) {
+                //if (compositorView.jTableCompositores.getSelectedRow() != -1) {
+                if (compositorView.getTable().getSelectedRow() != -1) {
+                    //int selected = compositorView.jTableCompositores.getSelectedRow();
+                    int selected = compositorView.getTable().getSelectedRow();
 
-                    compositorView.setCompositor(compositorView.jTableCompositores.getValueAt(selected, 1).toString());
-                    compositorView.setTelefone(compositorView.jTableCompositores.getValueAt(selected, 2).toString());
-                    compositorView.setEndereco(compositorView.jTableCompositores.getValueAt(selected, 3).toString());
+                   // compositorView.setCompositor(compositorView.jTableCompositores.getValueAt(selected, 1).toString());
+                    compositorView.setCompositor(compositorView.getTable().getValueAt(selected, 1).toString());
+                    
+                    //compositorView.setTelefone(compositorView.jTableCompositores.getValueAt(selected, 2).toString());
+                    compositorView.setTelefone(compositorView.getTable().getValueAt(selected, 2).toString());
+                    
+                    //compositorView.setEndereco(compositorView.jTableCompositores.getValueAt(selected, 3).toString());
+                    compositorView.setEndereco(compositorView.getTable().getValueAt(selected, 3).toString());
                 }
             }
         }
 
         @Override
         public void mousePressed(MouseEvent me) {
-            if (compositorView.jTableCompositores == me.getSource()) {
-                if (compositorView.jTableCompositores.getSelectedRow() != -1) {
-                    int selected = compositorView.jTableCompositores.getSelectedRow();
+           //if (compositorView.jTableCompositores == me.getSource()) {
+            if (compositorView.getTable() == me.getSource()) {
+                //if (compositorView.jTableCompositores.getSelectedRow() != -1) {
+                if (compositorView.getTable().getSelectedRow() != -1) {
+                    //int selected = compositorView.jTableCompositores.getSelectedRow();
+                    int selected = compositorView.getTable().getSelectedRow();
 
-                    compositorView.setCompositor(compositorView.jTableCompositores.getValueAt(selected, 1).toString());
-                    compositorView.setTelefone(compositorView.jTableCompositores.getValueAt(selected, 2).toString());
-                    compositorView.setEndereco(compositorView.jTableCompositores.getValueAt(selected, 3).toString());
+                    //compositorView.setCompositor(compositorView.jTableCompositores.getValueAt(selected, 1).toString());
+                    compositorView.setCompositor(compositorView.getTable().getValueAt(selected, 1).toString());
+                    
+                    //compositorView.setTelefone(compositorView.jTableCompositores.getValueAt(selected, 2).toString());
+                    compositorView.setTelefone(compositorView.getTable().getValueAt(selected, 2).toString());
+                    
+                    //compositorView.setEndereco(compositorView.jTableCompositores.getValueAt(selected, 3).toString());
+                    compositorView.setEndereco(compositorView.getTable().getValueAt(selected, 3).toString());
                 }
             }
         }

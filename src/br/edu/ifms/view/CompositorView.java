@@ -2,14 +2,17 @@ package br.edu.ifms.view;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 public class CompositorView extends javax.swing.JInternalFrame {
-    
+
     public CompositorView() {
         initComponents();
         this.setLocation(350, 100);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -152,7 +155,7 @@ public class CompositorView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jTableCompositores;
+    private static javax.swing.JTable jTableCompositores;
     private javax.swing.JTextField jTextCompositor;
     private javax.swing.JTextField jTextEndereco;
     private javax.swing.JFormattedTextField jTextTelefone;
@@ -162,16 +165,16 @@ public class CompositorView extends javax.swing.JInternalFrame {
     public String getCompositor() {
         return jTextCompositor.getText();
     }
-    
+
     public void setCompositor(String jTextCompositor) {
         this.jTextCompositor.setText(jTextCompositor);
     }
-    
-    public String getTelefone(){
+
+    public String getTelefone() {
         return jTextTelefone.getText();
     }
-    
-    public void setTelefone(String jTextTelefone){
+
+    public void setTelefone(String jTextTelefone) {
         this.jTextTelefone.setText(jTextTelefone);
     }
 
@@ -182,18 +185,27 @@ public class CompositorView extends javax.swing.JInternalFrame {
     public void setEndereco(String jTextEndereco) {
         this.jTextEndereco.setText(jTextEndereco);
     }
-    
-    
-    
+
     public void addButtonListener(ActionListener actionListener) {
         btnCadastrar.addActionListener(actionListener);
         btnEditar.addActionListener(actionListener);
         btnDeletar.addActionListener(actionListener);
         btnLimpar.addActionListener(actionListener);
     }
-    
+
     public void addTableListener(MouseListener mouseListener) {
         jTableCompositores.addMouseListener(mouseListener);
     }
+
+    public DefaultTableModel getTableM(){
+        return (DefaultTableModel) jTableCompositores.getModel();
+    }
     
+    public void setRS(DefaultTableModel model){
+        this.jTableCompositores.setRowSorter(new TableRowSorter(model));
+    }
+    
+    public JTable getTable(){
+        return jTableCompositores;
+    }
 }

@@ -1,7 +1,8 @@
-package br.edu.ifms.view;
+package br.edu.ifms.application;
 
 import br.edu.ifms.controller.LoginController;
 import br.edu.ifms.model.Usuario;
+import br.edu.ifms.view.LoginView;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 

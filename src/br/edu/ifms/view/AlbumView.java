@@ -3,6 +3,10 @@ package br.edu.ifms.view;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.util.Date;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class AlbumView extends javax.swing.JInternalFrame {
 
@@ -145,7 +149,7 @@ public class AlbumView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jTableAlbuns;
+    private static javax.swing.JTable jTableAlbuns;
     private javax.swing.JTextField jTextAlbum;
     private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
@@ -157,12 +161,12 @@ public class AlbumView extends javax.swing.JInternalFrame {
     public void setAlbum(String album) {
         this.jTextAlbum.setText(album);
     }
-    
-    public Date getDate(){
+
+    public Date getDate() {
         return JXDateDataLancamento.getDate();
     }
-    
-    public void setDate(Date date){
+
+    public void setDate(Date date) {
         this.JXDateDataLancamento.setDate(date);
     }
 
@@ -175,6 +179,18 @@ public class AlbumView extends javax.swing.JInternalFrame {
 
     public void addTableListener(MouseListener mouseListener) {
         jTableAlbuns.addMouseListener(mouseListener);
+    }
+
+    public DefaultTableModel getTableM() {
+        return (DefaultTableModel) jTableAlbuns.getModel();
+    }
+
+    public void setRS(DefaultTableModel model) {
+        this.jTableAlbuns.setRowSorter(new TableRowSorter(model));
+    }
+
+    public JTable getTable() {
+        return jTableAlbuns;
     }
 
 }

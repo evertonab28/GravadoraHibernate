@@ -2,6 +2,9 @@ package br.edu.ifms.view;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 public class UsuarioView extends javax.swing.JInternalFrame {
 
@@ -142,7 +145,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jTableUsuarios;
+    private static javax.swing.JTable jTableUsuarios;
     private javax.swing.JTextField jTextLogin;
     private javax.swing.JPasswordField jTextSenha;
     private javax.swing.JTextField jTextUsuario;
@@ -182,6 +185,18 @@ public class UsuarioView extends javax.swing.JInternalFrame {
     
     public void addTableListener(MouseListener mouseListener){
         jTableUsuarios.addMouseListener(mouseListener);
+    }
+    
+    public DefaultTableModel getTableM(){
+        return (DefaultTableModel) jTableUsuarios.getModel();
+    }
+    
+    public void setRS(DefaultTableModel model){
+        this.jTableUsuarios.setRowSorter(new TableRowSorter(model));
+    }
+    
+    public JTable getTable(){
+        return jTableUsuarios;
     }
 
 }
