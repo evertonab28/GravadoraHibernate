@@ -30,8 +30,9 @@ public class LoginView extends javax.swing.JFrame {
         getContentPane().add(jTextLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 47, 126, -1));
         getContentPane().add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 85, 124, -1));
 
+        jLoginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/Unlock.png"))); // NOI18N
         jLoginButton.setText("Login");
-        getContentPane().add(jLoginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 123, -1, -1));
+        getContentPane().add(jLoginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

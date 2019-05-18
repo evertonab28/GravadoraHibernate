@@ -19,6 +19,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+F1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/br/edu/ifms/icons/adicionar-usu&#xe1;rio-masculino-25.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Usu&#xe1;rios"/>
               </Properties>
               <AuxValues>
@@ -27,6 +30,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuAlbum">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/br/edu/ifms/icons/Music.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#xc1;lbuns"/>
               </Properties>
               <AuxValues>
@@ -35,6 +41,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuArtista">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/br/edu/ifms/icons/Microphone-icon.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Artistas"/>
               </Properties>
               <AuxValues>
@@ -43,6 +52,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuCompositor">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/br/edu/ifms/icons/document-audio-icon.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Compositores"/>
               </Properties>
               <AuxValues>
@@ -51,6 +63,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuMusica">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/br/edu/ifms/icons/Audio_Cd.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="M&#xfa;sicas"/>
               </Properties>
               <AuxValues>
@@ -66,12 +81,10 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Musicas"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Musicas Layout"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/br/edu/ifms/icons/Music.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Albuns"/>
               </Properties>
             </MenuItem>
           </SubComponents>

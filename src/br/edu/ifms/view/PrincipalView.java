@@ -26,7 +26,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuMusica = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -40,18 +39,23 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu1.setText("Cadastro");
 
         jMenuUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/adicionar-usuário-masculino-25.png"))); // NOI18N
         jMenuUsuario.setText("Usuários");
         jMenu1.add(jMenuUsuario);
 
+        jMenuAlbum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/Music.png"))); // NOI18N
         jMenuAlbum.setText("Álbuns");
         jMenu1.add(jMenuAlbum);
 
+        jMenuArtista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/Microphone-icon.png"))); // NOI18N
         jMenuArtista.setText("Artistas");
         jMenu1.add(jMenuArtista);
 
+        jMenuCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/document-audio-icon.png"))); // NOI18N
         jMenuCompositor.setText("Compositores");
         jMenu1.add(jMenuCompositor);
 
+        jMenuMusica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/Audio_Cd.png"))); // NOI18N
         jMenuMusica.setText("Músicas");
         jMenu1.add(jMenuMusica);
 
@@ -59,11 +63,9 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenu3.setText("Consultar");
 
-        jMenuItem7.setText("Musicas");
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/Music.png"))); // NOI18N
+        jMenuItem7.setText("Albuns");
         jMenu3.add(jMenuItem7);
-
-        jMenuItem8.setText("Musicas Layout");
-        jMenu3.add(jMenuItem8);
 
         jMenuBar1.add(jMenu3);
 
@@ -119,7 +121,6 @@ public class PrincipalView extends javax.swing.JFrame {
     public javax.swing.JMenuItem jMenuCompositor;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     public javax.swing.JMenuItem jMenuMusica;
     public javax.swing.JMenuItem jMenuUsuario;
     // End of variables declaration//GEN-END:variables
