@@ -28,7 +28,7 @@ public class MusicaController {
         this.musicaView.addTableListener(new TableListener());
         //DefaultTableModel model = (DefaultTableModel) this.musicaView.jTableMusicas.getModel();
         DefaultTableModel model = (DefaultTableModel) this.musicaView.getTableM();
-        
+
         //this.musicaView.jTableMusicas.setRowSorter(new TableRowSorter(model));
         this.musicaView.getTable().setRowSorter(new TableRowSorter(model));
         populaComboBoxArtista();
@@ -203,13 +203,13 @@ public class MusicaController {
 
                     //musicaView.setMusica(musicaView.jTableMusicas.getValueAt(selected, 1).toString());
                     musicaView.setMusica(musicaView.getTable().getValueAt(selected, 1).toString());
-                    
-                   //musicaView.ComboBoxArtista.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 2));
+
+                    //musicaView.ComboBoxArtista.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 2));
                     musicaView.ComboBoxArtista.setSelectedItem(musicaView.getTable().getValueAt(selected, 2));
-                    
-                   // musicaView.ComboBoxCompositor.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 3));
+
+                    // musicaView.ComboBoxCompositor.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 3));
                     musicaView.ComboBoxCompositor.setSelectedItem(musicaView.getTable().getValueAt(selected, 3));
-                    
+
                     //musicaView.ComboBoxAlbum.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 4));
                     musicaView.ComboBoxAlbum.setSelectedItem(musicaView.getTable().getValueAt(selected, 4));
                 }
@@ -227,13 +227,13 @@ public class MusicaController {
 
                     //musicaView.setMusica(musicaView.jTableMusicas.getValueAt(selected, 1).toString());
                     musicaView.setMusica(musicaView.getTable().getValueAt(selected, 1).toString());
-                    
+
                     //musicaView.ComboBoxArtista.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 2));
                     musicaView.ComboBoxArtista.setSelectedItem(musicaView.getTable().getValueAt(selected, 2));
-                    
+
                     //musicaView.ComboBoxCompositor.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 3));
                     musicaView.ComboBoxCompositor.setSelectedItem(musicaView.getTable().getValueAt(selected, 3));
-                    
+
                     //musicaView.ComboBoxAlbum.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 4));
                     musicaView.ComboBoxAlbum.setSelectedItem(musicaView.getTable().getValueAt(selected, 4));
                 }

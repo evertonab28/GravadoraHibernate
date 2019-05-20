@@ -32,7 +32,7 @@ public class AlbumController {
         this.albumView.addTableListener(new TableListener());
         //DefaultTableModel model = (DefaultTableModel) this.albumView.jTableAlbuns.getModel();
         DefaultTableModel model = (DefaultTableModel) this.albumView.getTableM();
-        
+
         //this.albumView.jTableAlbuns.setRowSorter(new TableRowSorter(model));
         this.albumView.getTable().setRowSorter(new TableRowSorter(model));
         fillTable();
@@ -40,9 +40,9 @@ public class AlbumController {
     }
 
     public void fillTable() {
-       // DefaultTableModel model = (DefaultTableModel) albumView.jTableAlbuns.getModel();
+        // DefaultTableModel model = (DefaultTableModel) albumView.jTableAlbuns.getModel();
         DefaultTableModel model = (DefaultTableModel) albumView.getTableM();
-        
+
         model.setNumRows(0);
         DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -51,7 +51,7 @@ public class AlbumController {
                 a.getId(),
                 a.getAlbum(),
                 //a.getDatalancamento()
-                df.format(a.getDatalancamento()) 
+                df.format(a.getDatalancamento())
             });
         }
     }
@@ -172,7 +172,7 @@ public class AlbumController {
             if (albumView.getTable() == me.getSource()) {
                 //if (albumView.jTableAlbuns.getSelectedRow() != -1) {
                 if (albumView.getTable().getSelectedRow() != -1) {
-                   //int selected = albumView.jTableAlbuns.getSelectedRow();
+                    //int selected = albumView.jTableAlbuns.getSelectedRow();
                     int selected = albumView.getTable().getSelectedRow();
 
                     //albumView.setAlbum(albumView.jTableAlbuns.getValueAt(selected, 1).toString());
