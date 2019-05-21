@@ -19,7 +19,7 @@ public class PrincipalView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icon = new ImageIcon(getClass().getResource("/IMAGEM/fundo.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/br/edu/ifms/images/fundo.jpg"));
         Image image = icon.getImage();
         jDesktopPane1 = new javax.swing.JDesktopPane(){
 
