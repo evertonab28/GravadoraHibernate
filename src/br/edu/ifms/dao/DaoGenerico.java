@@ -17,10 +17,14 @@ public class DaoGenerico<T extends EntidadeBase> {
 
     public <T> List<T> findByForeignKey(Class<T> clazz,  Long idFK, String nomeColuna){
         String tabela = clazz.getSimpleName();
-        String jpql = "from " + tabela + " where " + nomeColuna + "like :idFK";
+        String jpql = "from " + tabela + " where " + nomeColuna + " like :idFK";
         Query query = MANAGER.createQuery(jpql, clazz);
         query.setParameter("idFK", idFK + "%");
         return (List<T>) query.getResultList();             
+    }
+    
+    public <T> List<T> findNew(Class<T> clazz){
+        return null;
     }
     
     public <T> List<T> findByNome(Class<T> clazz, String nomeBusca, String nomeColuna) {

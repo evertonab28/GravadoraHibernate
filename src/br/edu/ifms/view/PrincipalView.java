@@ -34,8 +34,8 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuArtista = new javax.swing.JMenuItem();
         jMenuCompositor = new javax.swing.JMenuItem();
         jMenuMusica = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuConsultar = new javax.swing.JMenu();
+        jMenuConsAlbum = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -71,13 +71,13 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu3.setText("Consultar");
+        jMenuConsultar.setText("Consultar");
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/Music.png"))); // NOI18N
-        jMenuItem7.setText("Albuns");
-        jMenu3.add(jMenuItem7);
+        jMenuConsAlbum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/Music.png"))); // NOI18N
+        jMenuConsAlbum.setText("Albuns");
+        jMenuConsultar.add(jMenuConsAlbum);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMenuConsultar);
 
         jMenu2.setText("Opções");
 
@@ -124,13 +124,13 @@ public class PrincipalView extends javax.swing.JFrame {
     public javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     public javax.swing.JMenuItem jMenuAlbum;
     public javax.swing.JMenuItem jMenuArtista;
     private javax.swing.JMenuBar jMenuBar1;
     public javax.swing.JMenuItem jMenuCompositor;
+    public javax.swing.JMenuItem jMenuConsAlbum;
+    private javax.swing.JMenu jMenuConsultar;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem7;
     public javax.swing.JMenuItem jMenuMusica;
     public javax.swing.JMenuItem jMenuUsuario;
     // End of variables declaration//GEN-END:variables
@@ -141,6 +141,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuArtista.addActionListener(ActionMenu);
         jMenuCompositor.addActionListener(ActionMenu);
         jMenuMusica.addActionListener(ActionMenu);
+        jMenuConsAlbum.addActionListener(ActionMenu);
     }
 
 }

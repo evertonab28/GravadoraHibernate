@@ -19,6 +19,7 @@ public class FindByIdApplication {
         System.out.println("NOME: " + usuario.getUsuario());
 
         System.out.println("");
+                
         
         DaoGenerico<Musica> daoMusica = new DaoGenerico<>();
         

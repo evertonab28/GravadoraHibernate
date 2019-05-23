@@ -128,9 +128,7 @@ public class MusicaView extends javax.swing.JInternalFrame {
     public void setMusica(String jTextMusica) {
         this.jTextMusica.setText(jTextMusica);
     }
-    
-    
-
+        
     public void addButtonListener(ActionListener actionListener) {
         btnCadastrar.addActionListener(actionListener);
         btnEditar.addActionListener(actionListener);

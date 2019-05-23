@@ -4,7 +4,6 @@ import br.edu.ifms.dao.LoginDAO;
 import br.edu.ifms.model.Usuario;
 import br.edu.ifms.view.LoginView;
 import br.edu.ifms.view.PrincipalView;
-import br.edu.ifms.view.UsuarioView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -14,8 +13,6 @@ public class LoginController {
 
     private Usuario usuario;
     private LoginView loginView;
-    //private PrincipalView formPrincipal;
-    private UsuarioView usuarioView;
 
     public LoginController(Usuario usuario, LoginView view) {
         this.usuario = usuario;
@@ -60,13 +57,4 @@ public class LoginController {
 
     }
 
-//    public class ListenerUsuarioView implements ActionListener{
-//
-//        @Override
-//        public void actionPerformed(ActionEvent ae) {
-//            startUsuarioView();
-//        }
-//        
-//        
-//    }
 }

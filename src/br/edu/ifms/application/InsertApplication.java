@@ -6,6 +6,7 @@ import br.edu.ifms.model.Artista;
 import br.edu.ifms.model.Compositor;
 import br.edu.ifms.model.Musica;
 import br.edu.ifms.model.Usuario;
+import java.util.List;
 
 public class InsertApplication {
 
@@ -49,6 +50,12 @@ public class InsertApplication {
         musica.setArtista(artista);
         musica.setCompositor(compositor);
         
+        Musica musica2 = new Musica();
+        musica2.setMusica("Musica 2");
+        musica2.setAlbum(album);
+        musica2.setArtista(artista);
+        musica2.setCompositor(compositor);
+        
         
         //COMMIT
         daoUser.saveOrUpdate(usuario);
@@ -57,9 +64,15 @@ public class InsertApplication {
         daoArtista.saveOrUpdate(artista);
         daoCompositor.saveOrUpdate(compositor);
         daoMusica.saveOrUpdate(musica);
+        daoMusica.saveOrUpdate(musica2);
         
         System.out.println("Entidades salvas com sucesso!");
-
+        System.out.println("");                
+        
+        List<Musica> lista = daoMusica.findByForeignKey(Musica.class, album.getId(), "idalbum");
+        for(Musica m : lista){
+            System.out.println(m.getId());
+        }
     }
 
 }

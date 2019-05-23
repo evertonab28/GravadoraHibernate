@@ -157,8 +157,8 @@ public class AlbumController {
                     try {
                         //Date data = sdf.parse(albumView.jTableAlbuns.getValueAt(selected, 2).toString());
                         Date data = sdf.parse(albumView.getTable().getValueAt(selected, 2).toString());
-                        albumView.setDate(data);
-                        //albumView.setDate((Date) albumView.jTableAlbuns.getValueAt(selected, 2));
+                        //albumView.setDate(data);
+                        albumView.setDate((Date) albumView.getTable().getValueAt(selected, 2));
                     } catch (ParseException ex) {
                         Logger.getLogger(AlbumController.class.getName()).log(Level.SEVERE, null, ex);
                     }
