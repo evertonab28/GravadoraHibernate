@@ -18,10 +18,10 @@ public class ConsultaAlbumView extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableMusicas = new javax.swing.JTable();
-        txtPesquisar = new javax.swing.JTextField();
         JComboBoxAlbum = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
 
@@ -31,7 +31,7 @@ public class ConsultaAlbumView extends javax.swing.JInternalFrame {
         setTitle("Cadastro de Música");
         setToolTipText("");
         setPreferredSize(new java.awt.Dimension(640, 397));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jTableMusicas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -51,14 +51,35 @@ public class ConsultaAlbumView extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTableMusicas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 633, 190));
-        getContentPane().add(txtPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 13, 633, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 610;
+        gridBagConstraints.ipady = 173;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 27, 17);
+        getContentPane().add(jScrollPane1, gridBagConstraints);
 
         JComboBoxAlbum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        getContentPane().add(JComboBoxAlbum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 7, 0, 0);
+        getContentPane().add(JComboBoxAlbum, gridBagConstraints);
 
         jLabel8.setText("Álbum:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        getContentPane().add(jLabel8, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -68,7 +89,6 @@ public class ConsultaAlbumView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable jTableMusicas;
-    private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
 
     public void addTableListener(MouseListener mouseListener) {

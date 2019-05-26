@@ -21,21 +21,15 @@ public class UsuarioController {
         this.usuarioView = usuarioView;
         this.usuarioView.addButtonListener(new ButtonListener());
         this.usuarioView.addTableListener(new TableListener());
-        //DefaultTableModel model = (DefaultTableModel) this.usuarioView.jTableUsuarios.getModel();
         DefaultTableModel model = (DefaultTableModel) this.usuarioView.getTableM();
-        
-        //this.usuarioView.jTableUsuarios.setRowSorter(new TableRowSorter(model));
         this.usuarioView.getTable().setRowSorter(new TableRowSorter(model));
         fillTable();
-
     }
 
     public void fillTable() {
-       // DefaultTableModel model = (DefaultTableModel) usuarioView.jTableUsuarios.getModel();
         DefaultTableModel model = (DefaultTableModel) usuarioView.getTableM();
         model.setNumRows(0);
         DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
-
         for (Usuario u : daoUsuario.listaTodos(Usuario.class)) {
             model.addRow(new Object[]{
                 u.getId(),
@@ -75,30 +69,23 @@ public class UsuarioController {
     public void cadastrarUsuario() {
         usuario = new Usuario();
         DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
-
         if (usuarioView.getUsuario().isEmpty() || usuarioView.getLogin().isEmpty() || usuarioView.getSenha().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         } else {
-
             usuario.setUsuario(usuarioView.getUsuario());
             usuario.setLogin(usuarioView.getLogin());
             usuario.setSenha(usuarioView.getSenha());
             daoUsuario.saveOrUpdate(usuario);
-
             clearFields();
             fillTable();
-
+            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
         }
     }
 
     public void editarUsuario() {
-
-        //if (usuarioView.jTableUsuarios.getSelectedRow() != -1) {
         if (usuarioView.getTable().getSelectedRow() != -1) {
             usuario = new Usuario();
             DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
-
-            //Usuario u = daoUsuario.findById(Usuario.class, (Long) usuarioView.jTableUsuarios.getValueAt(usuarioView.jTableUsuarios.getSelectedRow(), 0));
             Usuario u = daoUsuario.findById(Usuario.class, (Long) usuarioView.getTable().getValueAt(usuarioView.getTable().getSelectedRow(), 0));
 
             if (usuarioView.getSenha().equals("")) {
@@ -112,13 +99,11 @@ public class UsuarioController {
             } else {
                 usuario.setUsuario(usuarioView.getUsuario());
                 usuario.setLogin(usuarioView.getLogin());
-
-                //usuario.setId((long) usuarioView.jTableUsuarios.getValueAt(usuarioView.jTableUsuarios.getSelectedRow(), 0));
                 usuario.setId((long) usuarioView.getTable().getValueAt(usuarioView.getTable().getSelectedRow(), 0));
                 daoUsuario.saveOrUpdate(usuario);
-
                 clearFields();
                 fillTable();
+                JOptionPane.showMessageDialog(null, "Usuário editado com sucesso!");
             }
 
         } else {
@@ -127,19 +112,14 @@ public class UsuarioController {
     }
 
     public void deletarUsuario() {
-        //if (usuarioView.jTableUsuarios.getSelectedRow() != -1) {
         if (usuarioView.getTable().getSelectedRow() != -1) {
-
             usuario = new Usuario();
             DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
-            //usuario.setId((long) usuarioView.jTableUsuarios.getValueAt(usuarioView.jTableUsuarios.getSelectedRow(), 0));
             usuario.setId((long) usuarioView.getTable().getValueAt(usuarioView.getTable().getSelectedRow(), 0));
-
             daoUsuario.remove(Usuario.class, usuario.getId());
             clearFields();
             fillTable();
             JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso!");
-
         } else {
             JOptionPane.showMessageDialog(null, "Selecione algum usuário para deletar!");
         }
@@ -149,16 +129,10 @@ public class UsuarioController {
 
         @Override
         public void mouseClicked(MouseEvent me) {
-            //if (usuarioView.jTableUsuarios == me.getSource()) {
             if (usuarioView.getTable() == me.getSource()) {
-                //if (usuarioView.jTableUsuarios.getSelectedRow() != -1) {
                 if (usuarioView.getTable().getSelectedRow() != -1) {
-                    //int selected = usuarioView.jTableUsuarios.getSelectedRow();
                     int selected = usuarioView.getTable().getSelectedRow();
-
-                    //usuarioView.setUsuario(usuarioView.jTableUsuarios.getValueAt(selected, 1).toString());
                     usuarioView.setUsuario(usuarioView.getTable().getValueAt(selected, 1).toString());
-                    //usuarioView.setLogin(usuarioView.jTableUsuarios.getValueAt(selected, 2).toString());
                     usuarioView.setLogin(usuarioView.getTable().getValueAt(selected, 2).toString());
                 }
             }
@@ -166,16 +140,10 @@ public class UsuarioController {
 
         @Override
         public void mousePressed(MouseEvent me) {
-            //if (usuarioView.jTableUsuarios == me.getSource()) {
             if (usuarioView.getTable() == me.getSource()) {
-                //if (usuarioView.jTableUsuarios.getSelectedRow() != -1) {
                 if (usuarioView.getTable().getSelectedRow() != -1) {
-                    //int selected = usuarioView.jTableUsuarios.getSelectedRow();
                     int selected = usuarioView.getTable().getSelectedRow();
-
-                    //usuarioView.setUsuario(usuarioView.jTableUsuarios.getValueAt(selected, 1).toString());
                     usuarioView.setUsuario(usuarioView.getTable().getValueAt(selected, 1).toString());
-                   // usuarioView.setLogin(usuarioView.jTableUsuarios.getValueAt(selected, 2).toString());
                     usuarioView.setLogin(usuarioView.getTable().getValueAt(selected, 2).toString());
                 }
             }

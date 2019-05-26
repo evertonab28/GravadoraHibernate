@@ -1,5 +1,4 @@
 package br.edu.ifms.controller;
-
 import br.edu.ifms.model.Album;
 import br.edu.ifms.model.Artista;
 import br.edu.ifms.model.Compositor;
@@ -10,6 +9,7 @@ import br.edu.ifms.view.ArtistaView;
 import br.edu.ifms.view.CompositorView;
 import br.edu.ifms.view.ConsultaAlbumView;
 import br.edu.ifms.view.MusicaView;
+import br.edu.ifms.view.MusicaViewLayout;
 import br.edu.ifms.view.PrincipalView;
 import br.edu.ifms.view.UsuarioView;
 import java.awt.event.ActionEvent;
@@ -23,6 +23,7 @@ public class PrincipalController {
     private ArtistaView artistaView;
     private CompositorView compositorView;
     private MusicaView musicaView;
+    //private MusicaViewLayout musicaView;
     private ConsultaAlbumView consAlbView;
 
     public PrincipalController(PrincipalView pView) {
@@ -41,8 +42,8 @@ public class PrincipalController {
                 UsuarioController usuarioCtrl = new UsuarioController(usuario, usuarioView);
                 pView.jDesktopPane1.add(usuarioView);
                 usuarioView.setVisible(true);
-
             }
+            
             if (ae.getSource() == pView.jMenuAlbum) {
                 albumView = new AlbumView();
                 Album album = new Album();
@@ -50,6 +51,7 @@ public class PrincipalController {
                 pView.jDesktopPane1.add(albumView);
                 albumView.setVisible(true);
             }
+            
             if (ae.getSource() == pView.jMenuArtista) {
                 artistaView = new ArtistaView();
                 Artista artista = new Artista();
@@ -57,6 +59,7 @@ public class PrincipalController {
                 pView.jDesktopPane1.add(artistaView);
                 artistaView.setVisible(true);
             }
+            
             if (ae.getSource() == pView.jMenuCompositor) {
                 compositorView = new CompositorView();
                 Compositor compositor = new Compositor();
@@ -64,8 +67,10 @@ public class PrincipalController {
                 pView.jDesktopPane1.add(compositorView);
                 compositorView.setVisible(true);
             }
+            
             if (ae.getSource() == pView.jMenuMusica) {
                 musicaView = new MusicaView();
+                //musicaView = new MusicaViewLayout();
                 Musica musica = new Musica();
                 MusicaController musicaCtrl = new MusicaController(musica, musicaView);
                 pView.jDesktopPane1.add(musicaView);
@@ -74,9 +79,8 @@ public class PrincipalController {
 
             if (ae.getSource() == pView.jMenuConsAlbum) {
                 consAlbView = new ConsultaAlbumView();
-                Album album = new Album();
-                //ConsultaAlbumControllerOLD consAlbCtrl = new ConsultaAlbumControllerOLD(album, consAlbView);                         
-                ConsultaController ctrl = new ConsultaController(album, consAlbView);
+                Album album = new Album();                
+                ConsultaController consultaCtrl = new ConsultaController(album, consAlbView);
                 pView.jDesktopPane1.add(consAlbView);
                 consAlbView.setVisible(true);
             }

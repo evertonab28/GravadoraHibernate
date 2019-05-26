@@ -30,19 +30,14 @@ public class AlbumController {
         this.albumView.JXDateDataLancamento.setDate(Calendar.getInstance().getTime());
         this.albumView.addButtonListener(new ButtonListener());
         this.albumView.addTableListener(new TableListener());
-        //DefaultTableModel model = (DefaultTableModel) this.albumView.jTableAlbuns.getModel();
         DefaultTableModel model = (DefaultTableModel) this.albumView.getTableM();
-
-        //this.albumView.jTableAlbuns.setRowSorter(new TableRowSorter(model));
         this.albumView.getTable().setRowSorter(new TableRowSorter(model));
         fillTable();
 
     }
 
     public void fillTable() {
-        // DefaultTableModel model = (DefaultTableModel) albumView.jTableAlbuns.getModel();
         DefaultTableModel model = (DefaultTableModel) albumView.getTableM();
-
         model.setNumRows(0);
         DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -50,7 +45,6 @@ public class AlbumController {
             model.addRow(new Object[]{
                 a.getId(),
                 a.getAlbum(),
-                //a.getDatalancamento()
                 df.format(a.getDatalancamento())
             });
         }
@@ -78,7 +72,6 @@ public class AlbumController {
                 clearFields();
             }
         }
-
     }
 
     public void cadastrarAlbum() {
@@ -91,29 +84,26 @@ public class AlbumController {
             album.setAlbum(albumView.getAlbum());
             album.setDatalancamento(albumView.getDate());
             daoAlbum.saveOrUpdate(album);
-
             clearFields();
             fillTable();
+            JOptionPane.showMessageDialog(null, "Album cadastrado com sucesso!");
         }
     }
 
     public void editarAlbum() {
-        //if (albumView.jTableAlbuns.getSelectedRow() != -1) {
         if (albumView.getTable().getSelectedRow() != -1) {
             album = new Album();
             DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
-
             if (albumView.getAlbum().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "O campo Album não pode estar vazio!");
             } else {
                 album.setAlbum(albumView.getAlbum());
                 album.setDatalancamento(albumView.getDate());
-                //album.setId((long) albumView.jTableAlbuns.getValueAt(albumView.jTableAlbuns.getSelectedRow(), 0));
                 album.setId((long) albumView.getTable().getValueAt(albumView.getTable().getSelectedRow(), 0));
                 daoAlbum.saveOrUpdate(album);
-
                 clearFields();
                 fillTable();
+                JOptionPane.showMessageDialog(null, "Album editado com sucesso!");
             }
 
         } else {
@@ -122,14 +112,10 @@ public class AlbumController {
     }
 
     public void deletarAlbum() {
-        //if (albumView.jTableAlbuns.getSelectedRow() != -1) {
         if (albumView.getTable().getSelectedRow() != -1) {
-
             album = new Album();
             DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
-            //album.setId((long) albumView.jTableAlbuns.getValueAt(albumView.jTableAlbuns.getSelectedRow(), 0));
             album.setId((long) albumView.getTable().getValueAt(albumView.getTable().getSelectedRow(), 0));
-
             daoAlbum.remove(Album.class, album.getId());
             clearFields();
             fillTable();
@@ -143,22 +129,14 @@ public class AlbumController {
 
         @Override
         public void mouseClicked(MouseEvent me) {
-            //if (albumView.jTableAlbuns == me.getSource()) {
             if (albumView.getTable() == me.getSource()) {
-                //if (albumView.jTableAlbuns.getSelectedRow() != -1) {
                 if (albumView.getTable().getSelectedRow() != -1) {
-                    //int selected = albumView.jTableAlbuns.getSelectedRow();
                     int selected = albumView.getTable().getSelectedRow();
-
-                    //albumView.setAlbum(albumView.jTableAlbuns.getValueAt(selected, 1).toString());
                     albumView.setAlbum(albumView.getTable().getValueAt(selected, 1).toString());
-
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     try {
-                        //Date data = sdf.parse(albumView.jTableAlbuns.getValueAt(selected, 2).toString());
-                        Date data = sdf.parse(albumView.getTable().getValueAt(selected, 2).toString());
-                        //albumView.setDate(data);
-                        albumView.setDate((Date) albumView.getTable().getValueAt(selected, 2));
+                        Date data = sdf.parse(albumView.getTable().getValueAt(selected, 2).toString());                        
+                        albumView.setDate(data);
                     } catch (ParseException ex) {
                         Logger.getLogger(AlbumController.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -168,22 +146,14 @@ public class AlbumController {
 
         @Override
         public void mousePressed(MouseEvent me) {
-            //if (albumView.jTableAlbuns == me.getSource()) {
             if (albumView.getTable() == me.getSource()) {
-                //if (albumView.jTableAlbuns.getSelectedRow() != -1) {
                 if (albumView.getTable().getSelectedRow() != -1) {
-                    //int selected = albumView.jTableAlbuns.getSelectedRow();
                     int selected = albumView.getTable().getSelectedRow();
-
-                    //albumView.setAlbum(albumView.jTableAlbuns.getValueAt(selected, 1).toString());
                     albumView.setAlbum(albumView.getTable().getValueAt(selected, 1).toString());
-
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     try {
-                        //Date data = sdf.parse(albumView.jTableAlbuns.getValueAt(selected, 2).toString());
                         Date data = sdf.parse(albumView.getTable().getValueAt(selected, 2).toString());
                         albumView.setDate(data);
-                        //albumView.setDate((Date) albumView.jTableAlbuns.getValueAt(selected, 2));
                     } catch (ParseException ex) {
                         Logger.getLogger(AlbumController.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -205,7 +175,5 @@ public class AlbumController {
         public void mouseExited(MouseEvent me) {
             System.out.println("");
         }
-
     }
-
 }

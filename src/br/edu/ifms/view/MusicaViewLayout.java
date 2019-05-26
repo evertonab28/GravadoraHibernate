@@ -6,9 +6,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-public class CompositorView extends javax.swing.JInternalFrame {
+public class MusicaViewLayout extends javax.swing.JInternalFrame {
 
-    public CompositorView() {
+    public MusicaViewLayout() {
         initComponents();
         this.setLocation(350, 100);
     }
@@ -19,17 +19,19 @@ public class CompositorView extends javax.swing.JInternalFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableCompositores = new javax.swing.JTable();
+        jTableMusicas = new javax.swing.JTable();
         btnCadastrar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jTextEndereco = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextCompositor = new javax.swing.JTextField();
-        jTextTelefone = new javax.swing.JFormattedTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jTextMusica = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        ComboBoxArtista = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        ComboBoxCompositor = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        ComboBoxAlbum = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setClosable(true);
@@ -38,7 +40,7 @@ public class CompositorView extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(640, 397));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jTableCompositores.setModel(new javax.swing.table.DefaultTableModel(
+        jTableMusicas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -54,7 +56,7 @@ public class CompositorView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTableCompositores);
+        jScrollPane1.setViewportView(jTableMusicas);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -82,51 +84,34 @@ public class CompositorView extends javax.swing.JInternalFrame {
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/editar-usuário-masculino-25.png"))); // NOI18N
         btnEditar.setText("Editar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 8, 25, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 18, 25, 5);
         getContentPane().add(btnEditar, gridBagConstraints);
 
         btnDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/remover-usuário-masculino-25.png"))); // NOI18N
         btnDeletar.setText("Deletar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.ipadx = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 63, 25, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 0, 25, 20);
         getContentPane().add(btnDeletar, gridBagConstraints);
 
         btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/apagador-25.png"))); // NOI18N
         btnLimpar.setText("Limpar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 50, 25, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 18, 25, 0);
         getContentPane().add(btnLimpar, gridBagConstraints);
-
-        jLabel4.setText("Endereço:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 4, 0, 0);
-        getContentPane().add(jLabel4, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 359;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 4, 0, 0);
-        getContentPane().add(jTextEndereco, gridBagConstraints);
 
         jLabel2.setText("Nome:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -140,77 +125,92 @@ public class CompositorView extends javax.swing.JInternalFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 533;
+        gridBagConstraints.ipadx = 565;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 4, 0, 0);
-        getContentPane().add(jTextCompositor, gridBagConstraints);
+        getContentPane().add(jTextMusica, gridBagConstraints);
 
-        try {
-            jTextTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 90;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 10, 0, 0);
-        getContentPane().add(jTextTelefone, gridBagConstraints);
-
-        jLabel3.setText("Telefone:");
+        jLabel6.setText("Artista:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 10, 0, 0);
-        getContentPane().add(jLabel3, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 0);
+        getContentPane().add(jLabel6, gridBagConstraints);
+
+        ComboBoxArtista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 4, 0, 0);
+        getContentPane().add(ComboBoxArtista, gridBagConstraints);
+
+        jLabel7.setText("Compositor:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 41, 0, 0);
+        getContentPane().add(jLabel7, gridBagConstraints);
+
+        ComboBoxCompositor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 2, 0, 0);
+        getContentPane().add(ComboBoxCompositor, gridBagConstraints);
+
+        jLabel8.setText("Álbum:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 95, 0, 0);
+        getContentPane().add(jLabel8, gridBagConstraints);
+
+        ComboBoxAlbum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 2, 0, 0);
+        getContentPane().add(ComboBoxAlbum, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JComboBox<Object> ComboBoxAlbum;
+    public javax.swing.JComboBox<Object> ComboBoxArtista;
+    public javax.swing.JComboBox<Object> ComboBoxCompositor;
     public javax.swing.JButton btnCadastrar;
     public javax.swing.JButton btnDeletar;
     public javax.swing.JButton btnEditar;
     public javax.swing.JButton btnLimpar;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private static javax.swing.JTable jTableCompositores;
-    private javax.swing.JTextField jTextCompositor;
-    private javax.swing.JTextField jTextEndereco;
-    private javax.swing.JFormattedTextField jTextTelefone;
+    private static javax.swing.JTable jTableMusicas;
+    private javax.swing.JTextField jTextMusica;
     // End of variables declaration//GEN-END:variables
 
-    public String getCompositor() {
-        return jTextCompositor.getText();
+ 
+    public String getMusica() {
+        return jTextMusica.getText();
     }
 
-    public void setCompositor(String jTextCompositor) {
-        this.jTextCompositor.setText(jTextCompositor);
+    public void setMusica(String jTextMusica) {
+        this.jTextMusica.setText(jTextMusica);
     }
-
-    public String getTelefone() {
-        return jTextTelefone.getText();
-    }
-
-    public void setTelefone(String jTextTelefone) {
-        this.jTextTelefone.setText(jTextTelefone);
-    }
-
-    public String getEndereco() {
-        return jTextEndereco.getText();
-    }
-
-    public void setEndereco(String jTextEndereco) {
-        this.jTextEndereco.setText(jTextEndereco);
-    }
-
+        
     public void addButtonListener(ActionListener actionListener) {
         btnCadastrar.addActionListener(actionListener);
         btnEditar.addActionListener(actionListener);
@@ -219,18 +219,19 @@ public class CompositorView extends javax.swing.JInternalFrame {
     }
 
     public void addTableListener(MouseListener mouseListener) {
-        jTableCompositores.addMouseListener(mouseListener);
+        jTableMusicas.addMouseListener(mouseListener);
     }
-
+    
     public DefaultTableModel getTableM(){
-        return (DefaultTableModel) jTableCompositores.getModel();
+        return (DefaultTableModel) jTableMusicas.getModel();
     }
     
     public void setRS(DefaultTableModel model){
-        this.jTableCompositores.setRowSorter(new TableRowSorter(model));
+        this.jTableMusicas.setRowSorter(new TableRowSorter(model));
     }
     
     public JTable getTable(){
-        return jTableCompositores;
+        return jTableMusicas;
     }
+
 }

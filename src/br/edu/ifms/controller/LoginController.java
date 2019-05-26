@@ -18,7 +18,6 @@ public class LoginController {
         this.usuario = usuario;
         this.loginView = view;
         this.loginView.addListenerLogin(new ListenerLogin());
-
     }
 
     public void startLogin() {
@@ -30,11 +29,9 @@ public class LoginController {
     }
 
     public void startFormPrincipal() {
-
         PrincipalView formPrincipal = new PrincipalView();
         PrincipalController pc = new PrincipalController(formPrincipal);
         formPrincipal.setVisible(true);
-
     }
 
     public class ListenerLogin implements ActionListener {
@@ -52,9 +49,6 @@ public class LoginController {
                 loginView.dispose();
                 startFormPrincipal();
             }
-
         }
-
     }
-
 }
