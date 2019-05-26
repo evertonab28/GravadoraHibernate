@@ -16,13 +16,18 @@ public class UsuarioController {
     private Usuario usuario;
     private UsuarioView usuarioView;
 
+    //Construtor do UsuarioController, passando um usuario e uma UsuarioView
     public UsuarioController(Usuario usuario, UsuarioView usuarioView) {
         this.usuario = usuario;
         this.usuarioView = usuarioView;
+        //ActionListener dos botões e da tabela
         this.usuarioView.addButtonListener(new ButtonListener());
         this.usuarioView.addTableListener(new TableListener());
+        //Definido o modelo da tabela como AbstractTableModel
         DefaultTableModel model = (DefaultTableModel) this.usuarioView.getTableM();
+        //Definindo ordenação para a tabela
         this.usuarioView.getTable().setRowSorter(new TableRowSorter(model));
+        //metodo para preencher a tabela com uma lista de usuarios
         fillTable();
     }
 
@@ -38,12 +43,14 @@ public class UsuarioController {
         }
     }
 
+    //Metodo para limpar os campos
     public void clearFields() {
         usuarioView.setUsuario("");
         usuarioView.setLogin("");
         usuarioView.setSenha("");
     }
 
+    //Classe que implementa um ActionListener para os botões da view
     public class ButtonListener implements ActionListener {
 
         @Override
@@ -66,6 +73,7 @@ public class UsuarioController {
         }
     }
 
+    //Metodo para cadastro de um novo Usuario
     public void cadastrarUsuario() {
         usuario = new Usuario();
         DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
@@ -82,7 +90,9 @@ public class UsuarioController {
         }
     }
 
+    //Metodo para edicao de um usuario selecionado na tabela
     public void editarUsuario() {
+        //Verifica se algum usuario foi selecionado na tabela
         if (usuarioView.getTable().getSelectedRow() != -1) {
             usuario = new Usuario();
             DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>();
@@ -97,6 +107,7 @@ public class UsuarioController {
             if (usuarioView.getLogin().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "O campo login não pode estar vazio!");
             } else {
+                //Seta os atributos do Usuario e salva no banco, limpa os campos e atualiza a tabela
                 usuario.setUsuario(usuarioView.getUsuario());
                 usuario.setLogin(usuarioView.getLogin());
                 usuario.setId((long) usuarioView.getTable().getValueAt(usuarioView.getTable().getSelectedRow(), 0));
@@ -111,6 +122,7 @@ public class UsuarioController {
         }
     }
 
+    //Metodo para exclusao de um Usuario selecionado na tabela
     public void deletarUsuario() {
         if (usuarioView.getTable().getSelectedRow() != -1) {
             usuario = new Usuario();
@@ -125,6 +137,8 @@ public class UsuarioController {
         }
     }
 
+    //Classe que implementa um MouseListener e ouve um evento de clique na tabela
+    //Se alguma linha for selecionada, os dados são preenchidos nos campos
     public class TableListener implements MouseListener {
 
         @Override

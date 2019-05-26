@@ -22,15 +22,16 @@ public class PrincipalController {
     private AlbumView albumView;
     private ArtistaView artistaView;
     private CompositorView compositorView;
-    private MusicaView musicaView;
-    //private MusicaViewLayout musicaView;
+    private MusicaView musicaView;    
     private ConsultaAlbumView consAlbView;
 
+    //Construtor da View Principal
     public PrincipalController(PrincipalView pView) {
         this.pView = pView;
         this.pView.addActionMenu(new ActionMenu());
     }
 
+    //Classe que implementa um ActionListener para os menus da View
     public class ActionMenu implements ActionListener {
 
         @Override
@@ -69,8 +70,7 @@ public class PrincipalController {
             }
             
             if (ae.getSource() == pView.jMenuMusica) {
-                musicaView = new MusicaView();
-                //musicaView = new MusicaViewLayout();
+                musicaView = new MusicaView();                
                 Musica musica = new Musica();
                 MusicaController musicaCtrl = new MusicaController(musica, musicaView);
                 pView.jDesktopPane1.add(musicaView);

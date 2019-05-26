@@ -17,9 +17,12 @@ public class InsertApplication {
         
         usuario.setUsuario("Administrador");
         usuario.setLogin("admin");
-        usuario.setSenha("1");       
+        usuario.setSenha("admin");       
         
+        daoUser.saveOrUpdate(usuario);
         
+        System.out.println("Salvo com sucesso!"); 
+        /*
         //ALBUM
         Album album = new Album();
         DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
@@ -54,25 +57,19 @@ public class InsertApplication {
         musica2.setMusica("Musica 2");
         musica2.setAlbum(album);
         musica2.setArtista(artista);
-        musica2.setCompositor(compositor);
+        musica2.setCompositor(compositor);        
         
-        
-        //COMMIT
-        daoUser.saveOrUpdate(usuario);
-        
+        //COMMIT               
         daoAlbum.saveOrUpdate(album);
         daoArtista.saveOrUpdate(artista);
         daoCompositor.saveOrUpdate(compositor);
         daoMusica.saveOrUpdate(musica);
         daoMusica.saveOrUpdate(musica2);
-        
-        System.out.println("Entidades salvas com sucesso!");
-        System.out.println("");                
-        
+                                           
         List<Musica> lista = daoMusica.findByForeignKey(Musica.class, album.getId(), "idalbum");
         for(Musica m : lista){
             System.out.println(m.getId());
-        }
+        }*/
     }
 
 }

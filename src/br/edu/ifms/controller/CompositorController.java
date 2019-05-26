@@ -16,13 +16,18 @@ public class CompositorController {
     private Compositor compositor;
     private CompositorView compositorView;
 
+    //Construtor do CompositorController, passando um compositor e uma CompositorView
     public CompositorController(Compositor compositor, CompositorView compositorView) {
         this.compositor = compositor;
         this.compositorView = compositorView;
+        //ActionListener dos botões e da tabela
         this.compositorView.addButtonListener(new ButtonListener());
         this.compositorView.addTableListener(new TableListener());
+        //Definido o modelo da tabela como AbstractTableModel
         DefaultTableModel model = (DefaultTableModel) this.compositorView.getTableM();
+        //Definindo ordenação para a tabela
         this.compositorView.getTable().setRowSorter(new TableRowSorter(model));
+        //metodo para preencher a tabela com uma lista de compositores
         fillTable();
     }
 
@@ -40,12 +45,14 @@ public class CompositorController {
         }
     }
 
+    //Metodo para limpar os campos
     public void clearFields() {
         compositorView.setCompositor("");
         compositorView.setTelefone("");
         compositorView.setEndereco("");
     }
 
+    //Classe que implementa um ActionListener para os botões da view
     public class ButtonListener implements ActionListener {
 
         @Override
@@ -65,6 +72,7 @@ public class CompositorController {
         }
     }
 
+    //Metodo para cadastro de um novo Compositor
     public void cadastrarCompositor() {
         compositor = new Compositor();
         DaoGenerico<Compositor> daoCompositor = new DaoGenerico<>();
@@ -82,13 +90,16 @@ public class CompositorController {
         }
     }
 
+    //Metodo para edicao de um compositor selecionado na tabela
     public void editarCompositor() {
+        //Verifica se algum compositor foi selecionado na tabela
         if (compositorView.getTable().getSelectedRow() != -1) {
             compositor = new Compositor();
             DaoGenerico<Compositor> daoCompositor = new DaoGenerico<>();
             if (compositorView.getCompositor().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "O campo nome não pode estar vazio!");
             } else {
+                //Seta os atributos do Compositor e salva no banco, limpa os campos e atualiza a tabela
                 compositor.setNomeCompositor(compositorView.getCompositor());
                 compositor.setTelefoneCompositor(compositorView.getTelefone());
                 compositor.setEnderecoCompositor(compositorView.getEndereco());
@@ -103,10 +114,12 @@ public class CompositorController {
         }
     }
 
+    //Metodo para exclusao de um Compositor selecionado na tabela
     public void deletarCompositor() {
         if (compositorView.getTable().getSelectedRow() != -1) {
             compositor = new Compositor();
             DaoGenerico<Compositor> daoCompositor = new DaoGenerico<>();
+            //Seta o id do Compositor selecionado no tabela, faz a exclusao, limpa os campos e atualiza a tabela
             compositor.setId((long) compositorView.getTable().getValueAt(compositorView.getTable().getSelectedRow(), 0));
             daoCompositor.remove(Compositor.class, compositor.getId());
             clearFields();
@@ -117,6 +130,8 @@ public class CompositorController {
         }
     }
 
+    //Classe que implementa um MouseListener e ouve um evento de clique na tabela
+    //Se alguma linha for selecionada, os dados são preenchidos nos campos
     public class TableListener implements MouseListener {
 
         @Override

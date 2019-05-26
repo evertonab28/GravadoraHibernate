@@ -23,15 +23,21 @@ public class AlbumController {
     private Album album;
     private AlbumView albumView;
 
+    //Construtor do AlbumController, passando um album do tipo Album e uma AlbumView
+    //O formato de data é definido como DIA/MES/ANO e definida a data de hoje        
     public AlbumController(Album album, AlbumView albumView) {
         this.album = album;
         this.albumView = albumView;
         this.albumView.JXDateDataLancamento.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
         this.albumView.JXDateDataLancamento.setDate(Calendar.getInstance().getTime());
+        //ActionListener dos botões e da tabela
         this.albumView.addButtonListener(new ButtonListener());
         this.albumView.addTableListener(new TableListener());
+        //Definido o modelo da tabela como AbstractTableModel
         DefaultTableModel model = (DefaultTableModel) this.albumView.getTableM();
+        //Definindo ordenação para a tabela
         this.albumView.getTable().setRowSorter(new TableRowSorter(model));
+        //metodo para preencher a tabela com uma lista de albuns
         fillTable();
 
     }
@@ -50,13 +56,16 @@ public class AlbumController {
         }
     }
 
+    //Metodo para limpar os campos
     public void clearFields() {
         albumView.setAlbum("");
         albumView.setDate(Calendar.getInstance().getTime());
     }
 
+    //Classe que implementa um ActionListener para os botões da view
     public class ButtonListener implements ActionListener {
 
+        //Verifica qual a fonte do evento
         @Override
         public void actionPerformed(ActionEvent ae) {
             if (ae.getSource() == albumView.btnCadastrar) {
@@ -74,6 +83,7 @@ public class AlbumController {
         }
     }
 
+    //Metodo para cadastro de um novo album
     public void cadastrarAlbum() {
         album = new Album();
         DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
@@ -90,13 +100,17 @@ public class AlbumController {
         }
     }
 
+    //Metodo para edicao de um album selecionado na tabela
     public void editarAlbum() {
+        
+        //Verifica se algum album foi selecionado na tabela
         if (albumView.getTable().getSelectedRow() != -1) {
             album = new Album();
             DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
             if (albumView.getAlbum().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "O campo Album não pode estar vazio!");
             } else {
+                //Seta os atributos do Album e salva no banco, limpa os campos e atualiza a tabela
                 album.setAlbum(albumView.getAlbum());
                 album.setDatalancamento(albumView.getDate());
                 album.setId((long) albumView.getTable().getValueAt(albumView.getTable().getSelectedRow(), 0));
@@ -111,10 +125,13 @@ public class AlbumController {
         }
     }
 
+    //Metodo para exclusao de um album selecionado na tabela
     public void deletarAlbum() {
+        //Verifica se algum album foi selecionado na tabela
         if (albumView.getTable().getSelectedRow() != -1) {
             album = new Album();
             DaoGenerico<Album> daoAlbum = new DaoGenerico<>();
+            //Seta o id do Album selecionado no tabela, faz a exclusao, limpa os campos e atualiza a tabela
             album.setId((long) albumView.getTable().getValueAt(albumView.getTable().getSelectedRow(), 0));
             daoAlbum.remove(Album.class, album.getId());
             clearFields();
@@ -125,6 +142,8 @@ public class AlbumController {
         }
     }
 
+    //Classe que implementa um MouseListener e ouve um evento de clique na tabela
+    //Se alguma linha for selecionada, os dados são preenchidos nos campos
     public class TableListener implements MouseListener {
 
         @Override

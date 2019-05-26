@@ -20,18 +20,22 @@ public class MusicaController {
 
     private Musica musica;
     private MusicaView musicaView;
-    //private MusicaViewLayout musicaView;
 
+    //Construtor do MusicaController, passando um Musica e uma MusicaView
     public MusicaController(Musica musica, MusicaView musicaView) {
         this.musica = musica;
         this.musicaView = musicaView;
+        //ActionListener dos botões e da tabela
         this.musicaView.addButtonListener(new ButtonListener());
         this.musicaView.addTableListener(new TableListener());
+        //Definido o modelo da tabela como AbstractTableModel
         DefaultTableModel model = (DefaultTableModel) this.musicaView.getTableM();
+        //Definindo ordenação para a tabela
         this.musicaView.getTable().setRowSorter(new TableRowSorter(model));
         populaComboBoxArtista();
         populaComboBoxCompositor();
         populaComboBoxAlbum();
+        //metodo para preencher a tabela com uma lista de Musicas
         fillTable();
     }
 
@@ -50,6 +54,7 @@ public class MusicaController {
         }
     }
 
+    //Metodo para limpar os campos
     public void clearFields() {
         musicaView.setMusica("");
         populaComboBoxArtista();
@@ -57,6 +62,7 @@ public class MusicaController {
         populaComboBoxAlbum();
     }
 
+    //Classe que implementa um ActionListener para os botões da view
     public class ButtonListener implements ActionListener {
 
         @Override
@@ -76,6 +82,7 @@ public class MusicaController {
         }
     }
 
+    //Metodo para cadastro de uma nova Musica
     public void cadastrarMusica() {
         musica = new Musica();
         DaoGenerico<Musica> daoMusica = new DaoGenerico<>();
@@ -105,7 +112,9 @@ public class MusicaController {
         }
     }
 
+    //Metodo para edicao de uma Musica selecionada na tabela
     public void editarMusica() {
+        //Verifica se alguma Musica foi selecionada na tabela
         if (musicaView.getTable().getSelectedRow() != -1) {
             musica = new Musica();
             DaoGenerico<Musica> daoMusica = new DaoGenerico<>();
@@ -113,13 +122,13 @@ public class MusicaController {
             if (musicaView.getMusica().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "O campo nome não pode estar vazio!");
             } else {
+                //Seta os atributos da Musica e salva no banco, limpa os campos e atualiza a tabela
                 musica.setMusica(musicaView.getMusica());
                 musica.setArtista((Artista) musicaView.ComboBoxArtista.getSelectedItem());
                 musica.setCompositor((Compositor) musicaView.ComboBoxCompositor.getSelectedItem());
                 musica.setAlbum((Album) musicaView.ComboBoxAlbum.getSelectedItem());
                 musica.setId((long) musicaView.getTable().getValueAt(musicaView.getTable().getSelectedRow(), 0));
                 Album a = (Album) musicaView.ComboBoxAlbum.getSelectedItem();
-                System.out.println(a.getId());
                 daoMusica.saveOrUpdate(musica);
                 clearFields();
                 fillTable();
@@ -130,10 +139,13 @@ public class MusicaController {
         }
     }
 
+    //Metodo para exclusao de uma Musica selecionado na tabela
     public void deletarMusica() {
+        //Verifica se alguma Musica foi selecionada na tabela
         if (musicaView.getTable().getSelectedRow() != -1) {
             musica = new Musica();
             DaoGenerico<Musica> daoMusica = new DaoGenerico<>();
+            //Seta o id da Musica selecionada no tabela, faz a exclusao, limpa os campos e atualiza a tabela
             musica.setId((long) musicaView.getTable().getValueAt(musicaView.getTable().getSelectedRow(), 0));
             daoMusica.remove(Musica.class, musica.getId());
             fillTable();
@@ -143,6 +155,7 @@ public class MusicaController {
         }
     }
 
+    //Preenche o ComboBox de Artista através de uma lista de Artistas do banco
     public void populaComboBoxArtista() {
         DefaultComboBoxModel cmbArtModel = (DefaultComboBoxModel) musicaView.ComboBoxArtista.getModel();
         musicaView.ComboBoxArtista.removeAllItems();
@@ -153,6 +166,7 @@ public class MusicaController {
         }
     }
 
+    //Preenche o ComboBox de Compositor através de uma lista de Compositores do banco
     public void populaComboBoxCompositor() {
         DefaultComboBoxModel cmbCompModel = (DefaultComboBoxModel) musicaView.ComboBoxCompositor.getModel();
         musicaView.ComboBoxCompositor.removeAllItems();
@@ -163,6 +177,7 @@ public class MusicaController {
         }
     }
 
+    //Preenche o ComboBox de Album através de uma lista de Albuns do banco
     public void populaComboBoxAlbum() {
         DefaultComboBoxModel cmbAlbModel = (DefaultComboBoxModel) musicaView.ComboBoxAlbum.getModel();
         musicaView.ComboBoxAlbum.removeAllItems();
@@ -173,6 +188,8 @@ public class MusicaController {
         }
     }
 
+    //Classe que implementa um MouseListener e ouve um evento de clique na tabela
+    //Se alguma linha for selecionada, os dados são preenchidos nos campos
     public class TableListener implements MouseListener {
 
         @Override

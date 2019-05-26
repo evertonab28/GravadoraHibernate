@@ -16,13 +16,18 @@ public class ArtistaController {
     private Artista artista;
     private ArtistaView artistaView;
 
+    //Construtor do ArtistaController, passando um artista e uma ArtistaView
     public ArtistaController(Artista artista, ArtistaView artistaView) {
         this.artista = artista;
         this.artistaView = artistaView;
+        //ActionListener dos botões e da tabela
         this.artistaView.addButtonListener(new ButtonListener());
         this.artistaView.addTableListener(new TableListener());
+        //Definido o modelo da tabela como AbstractTableModel
         DefaultTableModel model = (DefaultTableModel) this.artistaView.getTableM();
+        //Definindo ordenação para a tabela
         this.artistaView.getTable().setRowSorter(new TableRowSorter(model));
+        //metodo para preencher a tabela com uma lista de artistas
         fillTable();
     }
 
@@ -40,12 +45,14 @@ public class ArtistaController {
         }
     }
 
+    //Metodo para limpar os campos
     public void clearFields() {
         artistaView.setArtista("");
         artistaView.setTelefone("");
         artistaView.setEndereco("");
     }
-
+    
+    //Classe que implementa um ActionListener para os botões da view
     public class ButtonListener implements ActionListener {
 
         @Override
@@ -65,6 +72,7 @@ public class ArtistaController {
         }
     }
 
+    //Metodo para cadastro de um novo Artista
     public void cadastrarArtista() {
         artista = new Artista();
         DaoGenerico<Artista> daoArtista = new DaoGenerico<>();
@@ -81,13 +89,16 @@ public class ArtistaController {
         }
     }
 
+    //Metodo para edicao de um artista selecionado na tabela
     public void editarArtista() {
+        //Verifica se algum artista foi selecionado na tabela
         if (artistaView.getTable().getSelectedRow() != -1) {
             artista = new Artista();
             DaoGenerico<Artista> daoArtista = new DaoGenerico<>();
             if (artistaView.getArtista().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "O campo nome não pode estar vazio!");
             } else {
+                //Seta os atributos do Artista e salva no banco, limpa os campos e atualiza a tabela
                 artista.setNomeArtista(artistaView.getArtista());
                 artista.setTelefoneArtista(artistaView.getTelefone());
                 artista.setEnderecoArtista(artistaView.getEndereco());
@@ -103,10 +114,13 @@ public class ArtistaController {
         }
     }
 
+    //Metodo para exclusao de um Artista selecionado na tabela
     public void deletarArtista() {
+        //Verifica se algum album foi selecionado na tabela
         if (artistaView.getTable().getSelectedRow() != -1) {
             artista = new Artista();
             DaoGenerico<Artista> daoArtista = new DaoGenerico<>();
+            //Seta o id do Artista selecionado no tabela, faz a exclusao, limpa os campos e atualiza a tabela
             artista.setId((long) artistaView.getTable().getValueAt(artistaView.getTable().getSelectedRow(), 0));
             daoArtista.remove(Artista.class, artista.getId());
             clearFields();
@@ -117,6 +131,8 @@ public class ArtistaController {
         }
     }
 
+    //Classe que implementa um MouseListener e ouve um evento de clique na tabela
+    //Se alguma linha for selecionada, os dados são preenchidos nos campos
     public class TableListener implements MouseListener {
 
         @Override
