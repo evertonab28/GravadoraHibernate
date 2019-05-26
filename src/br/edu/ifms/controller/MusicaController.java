@@ -6,7 +6,6 @@ import br.edu.ifms.model.Artista;
 import br.edu.ifms.model.Compositor;
 import br.edu.ifms.model.Musica;
 import br.edu.ifms.view.MusicaView;
-import br.edu.ifms.view.MusicaViewLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;

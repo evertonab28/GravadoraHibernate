@@ -76,7 +76,7 @@ public class ArtistaView extends javax.swing.JInternalFrame {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(25, 10, 70, 0);
+        gridBagConstraints.insets = new java.awt.Insets(25, 10, 20, 0);
         getContentPane().add(btnCadastrar, gridBagConstraints);
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/editar-usuário-masculino-25.png"))); // NOI18N
@@ -87,7 +87,7 @@ public class ArtistaView extends javax.swing.JInternalFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(25, 8, 70, 0);
+        gridBagConstraints.insets = new java.awt.Insets(25, 8, 20, 0);
         getContentPane().add(btnEditar, gridBagConstraints);
 
         btnDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/remover-usuário-masculino-25.png"))); // NOI18N
@@ -97,7 +97,7 @@ public class ArtistaView extends javax.swing.JInternalFrame {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.ipadx = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(25, 63, 70, 0);
+        gridBagConstraints.insets = new java.awt.Insets(25, 63, 20, 0);
         getContentPane().add(btnDeletar, gridBagConstraints);
 
         btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifms/icons/apagador-25.png"))); // NOI18N
@@ -108,7 +108,7 @@ public class ArtistaView extends javax.swing.JInternalFrame {
         gridBagConstraints.gridwidth = 10;
         gridBagConstraints.ipadx = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(25, 50, 70, 0);
+        gridBagConstraints.insets = new java.awt.Insets(25, 50, 20, 0);
         getContentPane().add(btnLimpar, gridBagConstraints);
 
         jLabel4.setText("Endereço:");
@@ -187,30 +187,37 @@ public class ArtistaView extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField jTextTelefone;
     // End of variables declaration//GEN-END:variables
 
+    //Metodo que retorna uma String preenchida no jTextArtista
     public String getArtista() {
         return jTextArtista.getText();
     }
 
+    //Metodo para setar uma String no jTextArtista
     public void setArtista(String jTextArtista) {
         this.jTextArtista.setText(jTextArtista);
     }
 
+    //Metodo que retorna uma String preenchida no jTextTelefone
     public String getTelefone() {
         return jTextTelefone.getText();
     }
 
+    //Metodo para setar uma String no jTextTelefone
     public void setTelefone(String jTextTelefone) {
         this.jTextTelefone.setText(jTextTelefone);
     }
 
+    //Metodo que retorna uma String preenchida no jTextEndereco
     public String getEndereco() {
         return jTextEndereco.getText();
     }
 
+    //Metodo para setar uma String no jTextEndereco
     public void setEndereco(String jTextEndereco) {
         this.jTextEndereco.setText(jTextEndereco);
     }
 
+    //Metodo para adicionar um ouvidor de ações nos botoes
     public void addButtonListener(ActionListener actionListener) {
         btnCadastrar.addActionListener(actionListener);
         btnEditar.addActionListener(actionListener);
@@ -218,18 +225,22 @@ public class ArtistaView extends javax.swing.JInternalFrame {
         btnLimpar.addActionListener(actionListener);
     }
 
+    //Metodo para adicionar um ouvidor de mouse na tabela
     public void addTableListener(MouseListener mouseListener) {
         jTableArtistas.addMouseListener(mouseListener);
     }
 
+    //Metodo que retorna um DefaultTableModel (implementação de TableModel) que fornece os dados da jTableArtistas
     public DefaultTableModel getTableM() {
         return (DefaultTableModel) jTableArtistas.getModel();
     }
 
+    //Metodo para setar a ordenação de linhas da jTableArtistas
     public void setRS(DefaultTableModel model) {
         this.jTableArtistas.setRowSorter(new TableRowSorter(model));
     }
 
+    //Metodo que retorna a JTable jTableArtistas
     public JTable getTable() {
         return jTableArtistas;
     }

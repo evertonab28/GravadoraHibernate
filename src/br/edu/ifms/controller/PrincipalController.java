@@ -9,7 +9,6 @@ import br.edu.ifms.view.ArtistaView;
 import br.edu.ifms.view.CompositorView;
 import br.edu.ifms.view.ConsultaAlbumView;
 import br.edu.ifms.view.MusicaView;
-import br.edu.ifms.view.MusicaViewLayout;
 import br.edu.ifms.view.PrincipalView;
 import br.edu.ifms.view.UsuarioView;
 import java.awt.event.ActionEvent;

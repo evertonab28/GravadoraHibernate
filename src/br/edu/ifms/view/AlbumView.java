@@ -171,22 +171,27 @@ public class AlbumView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextAlbum;
     // End of variables declaration//GEN-END:variables
 
+    //Metodo que retorna uma String preenchida no jTextAlbum
     public String getAlbum() {
         return jTextAlbum.getText();
     }
 
+    //Metodo para setar uma String no jTextAlbum
     public void setAlbum(String album) {
         this.jTextAlbum.setText(album);
     }
 
+    //Metodo que retorna um Date do JXDateDataLancamento
     public Date getDate() {
         return JXDateDataLancamento.getDate();
     }
 
+    //Metodo para setar um Date no JXDateDataLancamento
     public void setDate(Date date) {
         this.JXDateDataLancamento.setDate(date);
     }
 
+    //Metodo para adicionar um ouvidor de ações nos botoes
     public void addButtonListener(ActionListener actionListener) {
         btnCadastrar.addActionListener(actionListener);
         btnEditar.addActionListener(actionListener);
@@ -194,18 +199,22 @@ public class AlbumView extends javax.swing.JInternalFrame {
         btnLimpar.addActionListener(actionListener);
     }
 
+    //Metodo para adicionar um ouvidor de mouse na tabela
     public void addTableListener(MouseListener mouseListener) {
         jTableAlbuns.addMouseListener(mouseListener);
     }
 
+    //Metodo que retorna um Model DefaultTableModel da jTableAlbuns
     public DefaultTableModel getTableM() {
         return (DefaultTableModel) jTableAlbuns.getModel();
     }
 
+    //Metodo para setar a ordenação de linhas da jTableAlbuns
     public void setRS(DefaultTableModel model) {
         this.jTableAlbuns.setRowSorter(new TableRowSorter(model));
     }
 
+    //Metodo que retorna a JTable jTableAlbuns
     public JTable getTable() {
         return jTableAlbuns;
     }
