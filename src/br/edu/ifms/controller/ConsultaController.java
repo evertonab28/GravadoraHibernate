@@ -53,7 +53,7 @@ public class ConsultaController {
      */
     public void fillTable() {
         //DefaultTableModel model = (DefaultTableModel) musicaView.jTableMusicas.getModel();
-        DefaultTableModel model = (DefaultTableModel) musicaView.getTableM();
+        DefaultTableModel model = (DefaultTableModel) consultaAlbumView.getTableM();
         model.setNumRows(0);
         DaoGenerico<Musica> daoMusica = new DaoGenerico<>();
 
@@ -82,9 +82,9 @@ public class ConsultaController {
 
         consultaAlbumView.JComboBoxAlbum.removeAllItems();
 
-        DaoGenerico<Artista> artistaDao = new DaoGenerico<>();
+        DaoGenerico<Album> albumDao = new DaoGenerico<>();
         consultaAlbumView.JComboBoxAlbum.addItem("Selecione...");
-        for (Artista a : artistaDao.listaTodos(Artista.class)) {
+        for (Album a : albumDao.listaTodos(Album.class)) {
             cmbArtModel.addElement(a);
             //musicaView.ComboBoxArtista.addItem(a);
         }
@@ -95,8 +95,19 @@ public class ConsultaController {
         if (consultaAlbumView.JComboBoxAlbum.getModel().getSelectedItem() == "Selecione...") {
 
         } else {
-            Artista a = (Artista) consultaAlbumView.JComboBoxAlbum.getModel().getSelectedItem();
-            System.out.println(a);
+            Album a = (Album) consultaAlbumView.JComboBoxAlbum.getSelectedItem();
+
+            DefaultTableModel model = (DefaultTableModel) consultaAlbumView.getTableM();
+            model.setNumRows(0);
+            DaoGenerico<Musica> daoMusica = new DaoGenerico<>();
+            for (Musica m : daoMusica.findByForeignKey(Musica.class, a.getId(), "idalbum")) {
+            model.addRow(new Object[]{
+                m.getId(),
+                m.getMusica(),
+                m.getArtista(),
+                m.getCompositor()                
+            });
+        }
         }
     }
 
@@ -104,7 +115,7 @@ public class ConsultaController {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            if(ae.getSource() == consultaAlbumView.JComboBoxAlbum){
+            if (ae.getSource() == consultaAlbumView.JComboBoxAlbum) {
                 listar();
             }
         }

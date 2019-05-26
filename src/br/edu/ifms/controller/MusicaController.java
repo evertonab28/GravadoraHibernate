@@ -100,7 +100,7 @@ public class MusicaController {
                         musica.setArtista((Artista) musicaView.ComboBoxArtista.getSelectedItem());
                         musica.setCompositor((Compositor) musicaView.ComboBoxCompositor.getSelectedItem());
                         musica.setAlbum((Album) musicaView.ComboBoxAlbum.getSelectedItem());                        
-                        daoMusica.saveOrUpdate(musica);
+                        daoMusica.saveOrUpdate(musica);                                                                       
                         clearFields();
                         fillTable();
                     }
@@ -201,8 +201,8 @@ public class MusicaController {
                     musicaView.setMusica(musicaView.getTable().getValueAt(selected, 1).toString());
 
                     //musicaView.ComboBoxArtista.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 2));
-                    musicaView.ComboBoxArtista.setSelectedItem(musicaView.getTable().getValueAt(selected, 2));
-
+                    musicaView.ComboBoxArtista.setSelectedItem(musicaView.getTable().getValueAt(selected, 2));                    
+                    
                     // musicaView.ComboBoxCompositor.setSelectedItem(musicaView.jTableMusicas.getValueAt(selected, 3));
                     musicaView.ComboBoxCompositor.setSelectedItem(musicaView.getTable().getValueAt(selected, 3));
 
