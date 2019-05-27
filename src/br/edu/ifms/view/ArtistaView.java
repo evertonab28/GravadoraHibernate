@@ -192,7 +192,7 @@ public class ArtistaView extends javax.swing.JInternalFrame {
         return jTextArtista.getText();
     }
 
-    //Metodo para setar uma String no jTextArtista
+    //Metodo para preencher uma String no jTextArtista
     public void setArtista(String jTextArtista) {
         this.jTextArtista.setText(jTextArtista);
     }
@@ -202,7 +202,7 @@ public class ArtistaView extends javax.swing.JInternalFrame {
         return jTextTelefone.getText();
     }
 
-    //Metodo para setar uma String no jTextTelefone
+    //Metodo para preencher uma String no jTextTelefone
     public void setTelefone(String jTextTelefone) {
         this.jTextTelefone.setText(jTextTelefone);
     }
@@ -212,7 +212,7 @@ public class ArtistaView extends javax.swing.JInternalFrame {
         return jTextEndereco.getText();
     }
 
-    //Metodo para setar uma String no jTextEndereco
+    //Metodo para preencher uma String no jTextEndereco
     public void setEndereco(String jTextEndereco) {
         this.jTextEndereco.setText(jTextEndereco);
     }

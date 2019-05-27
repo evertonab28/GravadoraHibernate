@@ -25,8 +25,7 @@ public class Album implements EntidadeBase {
     public void setId(Long id) {
         this.id = id;
     }
-
-    @Column(name = "album")
+    
     public String getAlbum() {
         return album;
     }
@@ -37,7 +36,6 @@ public class Album implements EntidadeBase {
 
     @Column(name = "datalançamento")
     @Type(type = "date")
-//    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getDatalancamento() {
         return datalancamento;
     }

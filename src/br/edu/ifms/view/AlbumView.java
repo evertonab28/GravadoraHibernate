@@ -176,7 +176,7 @@ public class AlbumView extends javax.swing.JInternalFrame {
         return jTextAlbum.getText();
     }
 
-    //Metodo para setar uma String no jTextAlbum
+    //Metodo para preencher uma String no jTextAlbum
     public void setAlbum(String album) {
         this.jTextAlbum.setText(album);
     }
@@ -186,7 +186,7 @@ public class AlbumView extends javax.swing.JInternalFrame {
         return JXDateDataLancamento.getDate();
     }
 
-    //Metodo para setar um Date no JXDateDataLancamento
+    //Metodo para selecionar uma data no JXDateDataLancamento
     public void setDate(Date date) {
         this.JXDateDataLancamento.setDate(date);
     }
