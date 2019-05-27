@@ -20,14 +20,6 @@ public class LoginController {
         this.loginView.addListenerLogin(new ListenerLogin());
     }
 
-    public void startLogin() {
-        loginView.setTitle("Login");
-        loginView.pack();
-        loginView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        loginView.setLocationRelativeTo(null);
-        loginView.setVisible(true);
-    }
-
     public void startFormPrincipal() {
         PrincipalView formPrincipal = new PrincipalView();
         PrincipalController pc = new PrincipalController(formPrincipal);

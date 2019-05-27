@@ -6,6 +6,7 @@ public class LoginView extends javax.swing.JFrame {
 
     public LoginView() {
         initComponents();
+        this.setTitle("Login");
     }
 
     @SuppressWarnings("unchecked")
