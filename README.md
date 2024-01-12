@@ -1,3 +1,3 @@
 # GravadoraHibernate
 
-Projeto simples de CRUD em Java com arquitetura MVC e framework Hibernate
+CRUD em Java de gerenciamento de uma gravadora de músicas, desenvolvido com arquitetura MVC e framework Hibernate
